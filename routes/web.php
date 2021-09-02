@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\IngredientsController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ReceipesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+Route::get('/blog',[BlogController::class,'blog']);
+Route::get('/article', [BlogController::class,'article']);
+
+Route::get('/ingredients', [IngredientsController::class, 'ingredients']);
+Route::get('/ficheIngredient', [IngredientsController::class, 'ficheIngredient']);
+
+Route::get('/receipe', [ReceipesController::class, 'receipe']);
+Route::get('/receipeForm', [ReceipesController::class, 'receipeForm']);
+
+Route::get('/about', [PagesController::class, "about"]);
+Route::get('/', [ PagesController::class, "home" ]);
+
+
+require __DIR__.'/auth.php';
