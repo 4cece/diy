@@ -1,5 +1,6 @@
 @extends('layouts.front')
 
 @section('content')
-    #{ Ici sera notre contenu }
+
+<h2></h2>
 @endsection

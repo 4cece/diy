@@ -15,9 +15,11 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
-            $table->string('Aritcle', 255);
+            $table->string('Name', 255);
             $table->text('Content');
-            $table->integer('Order');
+            $table->integer('Order')->nullable();
+            $table->timestamps();
+
         });
     }
 

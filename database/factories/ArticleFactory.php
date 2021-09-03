@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Ingredient;
+use App\Models\Article;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class IngredientFactory extends Factory
+class ArticleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-     * 
+     *
      * @var string
      */
-    protected $model = Ingredient::class;
+    protected $model = Article::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class IngredientFactory extends Factory
     public function definition()
     {
         return [
-            'Name'=>$this->faker->words(2),
-            'Content'=>$this->faker->sentences(2, true), 
-            'img'=>$this->faker->imageUrl(600, 480),    
+            'title' => $this->faker->words(rand(2,8), true),
+            'Content' => $this->faker->sentence(8),
         ];
     }
 }

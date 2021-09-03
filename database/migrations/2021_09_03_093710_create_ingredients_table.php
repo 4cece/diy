@@ -17,7 +17,7 @@ class CreateIngredientsTable extends Migration
             $table->id();
             $table->string('Name', 255);
             $table->text('Content');
-            $table->string('img', 100);
+            $table->string('img', 100)->nullable();
             $table->timestamps();
         });
     }

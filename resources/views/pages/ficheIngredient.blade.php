@@ -1,5 +1,12 @@
 @extends('layouts.front')
 
 @section('content')
-    #{ Ici sera notre contenu }
+{{-- 
+<ol>
+    @foreach ($categorys as $categorys)
+    <li>{{ $category->Name}}</li>
+  
+     @endforeach
+</ol> --}}
+
 @endsection

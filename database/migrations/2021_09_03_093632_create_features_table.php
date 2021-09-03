@@ -16,6 +16,7 @@ class CreateFeaturesTable extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->string('Name', 255);
+            $table->timestamps();
         });
     }
 
