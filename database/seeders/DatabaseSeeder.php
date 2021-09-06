@@ -28,5 +28,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory(10)->create();
         \App\Models\Level::factory(3)->create();
         \App\Models\Receipe::factory(10)->create();
+        \App\Models\Ingredient::factory(10)->create();
+        \App\Models\Step::factory(10)->create();
+
     }
 }

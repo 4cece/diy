@@ -4,7 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FeatureController;
-use App\Http\Controllers\IngredientsController;
+use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ReceipesController;
 use Illuminate\Support\Facades\Route;
@@ -30,10 +30,10 @@ Route::get('/dashboard', function () {
 Route::get('/blog',[BlogController::class,'blog']);
 Route::get('/article', [ArticleController::class,'index']);
 
-Route::get('/ingredients', [IngredientsController::class, 'ingredients']);
+Route::get('/ingredients', [IngredientController::class, 'index']);
 
 Route::get('/ficheIngredient', [CategoryController::class, 'index']);
-Route::get('/ficheIngredient', [IngredientsController::class, 'ficheIngredient']);
+Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
 Route::get('/receipe', [ReceipesController::class, 'receipe']);
 Route::get('/receipeForm', [ReceipesController::class, 'receipeForm']);
