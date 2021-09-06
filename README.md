@@ -1,3 +1,6 @@
+DIY COSMETIC est un site sur lequel les personnes qui aime faire leur propre cosmétique (crème, lotion, savon ...) peuvent créer leur recettes, gèrer leur stock d'ingredient et lire des articles sur leur sujet préféré.
+
+
 Pour récupérer ce projet :
 
 Cliquer sur le bouton Fork en haut a droite de l'écran, cela vous permettra de récupérer ce projet dans votre propre github
