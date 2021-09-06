@@ -18,6 +18,7 @@ class CreateIngredientsTable extends Migration
             $table->string('name', 255);
             $table->text('content');
             $table->string('img', 100)->nullable();
+            $table->foreignId('ingredientType_id')->constrained();
             $table->timestamps();
         });
     }

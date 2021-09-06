@@ -23,7 +23,8 @@ class ArticleFactory extends Factory
     {
         return [
             'title' => $this->faker->words(rand(2,8), true),
-            'Content' => $this->faker->sentence(8),
+            'content' => $this->faker->sentence(8),
+            'user_id' => $this-> faker->numberBetween(1, 5)
         ];
     }
 }

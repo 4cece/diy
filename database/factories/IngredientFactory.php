@@ -22,9 +22,10 @@ class IngredientFactory extends Factory
     public function definition()
     {
         return [
-            'Name' => $this->faker->words(2, true),
-            'Content' => $this->faker->sentences(2, true),
-            'img' => $this->faker->imageUrl(600, 480)
+            'name' => $this->faker->words(2, true),
+            'content' => $this->faker->sentences(2, true),
+            'img' => $this->faker->imageUrl(600, 480),
+            // 'ingredientType_id' => $this->faker->
         ];
     }
 }
