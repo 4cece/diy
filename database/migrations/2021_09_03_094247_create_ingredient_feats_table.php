@@ -14,8 +14,10 @@ class CreateIngredientFeatsTable extends Migration
     public function up()
     {
         Schema::create('ingredient_feats', function (Blueprint $table) {
-            $table->integer('feature_id');
-            $table->integer('ingredient_id');
+            $table->foreignId('feature_id')->constrained();
+            $table->foreignId('ingredient_id')->constrained();
+            $table->timestamps();
+
         });
     }
 

@@ -18,6 +18,10 @@ class CreateReceipesTable extends Migration
             $table->string('name', 255);
             $table->text('content');
             $table->float('total_quantity', 8, 2, true);
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('level_id')->constrained();
+            // $table->unsignedBigInteger('ingredient_id');
+            // $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->timestamps();
         });
     }

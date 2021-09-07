@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Feature extends Model
 {
     use HasFactory;
+
+    public function ingredientFeature() {
+
+        return $this->hasmany(IngredientFeat::class);
+    }
 }

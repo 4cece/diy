@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Receipe;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -20,9 +21,14 @@ class User extends Authenticatable
         return $this->hasMany(Article::class);
     }
 
-    public function comments() {
+    public function comment() {
 
         return $this->hasMany(Comment::class);
+    }
+
+    public function receipe() {
+
+        return $this->hasMany(Receipe::class);
     }
     /**
      * The attributes that are mass assignable.

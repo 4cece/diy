@@ -25,7 +25,7 @@ class IngredientFactory extends Factory
             'name' => $this->faker->words(2, true),
             'content' => $this->faker->sentences(2, true),
             'img' => $this->faker->imageUrl(600, 480),
-            // 'ingredientType_id' => $this->faker->
+            'ingredient_type_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

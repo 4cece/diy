@@ -18,6 +18,7 @@ class CreateStepsTable extends Migration
             $table->string('name', 255);
             $table->text('content');
             $table->integer('order')->nullable();
+            $table->foreignId('receipe_id')->constrained();
             $table->timestamps();
 
         });

@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Step;
+use App\Models\IngredientFeat;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class StepFactory extends Factory
+class IngredientFeatFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Step::class;
+    protected $model = IngredientFeat::class;
 
     /**
      * Define the model's default state.
@@ -22,10 +22,8 @@ class StepFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(2, true),
-            'content' =>$this->faker->sentences(3, true),
-            'order' => $this->faker->numberBetween(1, 15),
-            'receipe_id'=>$this->faker->numberBetween(1, 10)
+            'feature_id'=>$this->faker->numberBetween(1, 10),
+            'ingredient_id'=>$this->faker->numberBetween(1, 10)
         ];
     }
 }

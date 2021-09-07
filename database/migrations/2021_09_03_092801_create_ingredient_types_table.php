@@ -16,7 +16,7 @@ class CreateIngredientTypesTable extends Migration
         Schema::create('ingredient_types', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
-
+            $table->timestamps();
         });
     }
 
