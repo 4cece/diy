@@ -10,6 +10,7 @@ use App\Models\Feature;
 use App\Models\Receipe;
 use App\Models\Category;
 use App\Models\Ingredient;
+use App\Models\IngredientBox;
 use App\Models\IngredientFeat;
 use App\Models\IngredientType;
 use Illuminate\Database\Seeder;
@@ -25,16 +26,18 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(5)->create();
         \App\Models\Article::factory(10)->create();
-        \App\Models\Comment::factory(10)->create();
         \App\Models\Feature::factory(10)->create();
         \App\Models\Category::factory(10)->create();
         \App\Models\Level::factory(3)->create();
-        \App\Models\Receipe::factory(10)->create();
-        \App\Models\Step::factory(10)->create();
         \App\Models\IngredientType::factory(10)->create();
         \App\Models\Ingredient::factory(10)->create();
+        \App\Models\Receipe::factory(10)->create();
         \App\Models\IngredientFeat::factory(10)->create();
         \App\Models\IngredientReceipe::factory(10)->create();
+        \App\Models\Comment::factory(10)->create();
+        \App\Models\Step::factory(10)->create();
+        \App\Models\IngredientBox::factory(10)->create();
+
 
     }
 }

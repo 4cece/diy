@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Receipe;
+use App\Models\IngredientBox;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ReceipeFactory extends Factory
+class IngredientBoxFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Receipe::class;
+    protected $model = IngredientBox::class;
 
     /**
      * Define the model's default state.
@@ -22,13 +22,10 @@ class ReceipeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(rand(2,8), true),
-            'content' => $this->faker->sentence(8),
-            "total_quantity" => $this->faker->randomFloat(0, 30, 1000),
-            'user_id'=>$this->faker->numberBetween(1, 5),
-            'level_id'=>$this->faker->numberBetween(1, 3),
+            "quantity" => $this->faker->randomFloat(0, 30, 100),
+            "expiration_date"=>$this->faker->date('Y-m-d', 'now'),
+            'user_id' => $this-> faker->numberBetween(1, 5),
             'ingredient_id'=>$this->faker->numberBetween(1, 10)
-
         ];
     }
 }
