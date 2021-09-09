@@ -19,8 +19,7 @@ class CreateCommentsTable extends Migration
             $table->text('content');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('article_id')->constrained();
-            // $table->unsignedBigInteger('receipe_id');
-            // $table->foreign('receipe_id')->references('id')->on('receipes');
+            $table->foreignId('receipe_id')->constrained();
             $table->timestamps();
         });
     }

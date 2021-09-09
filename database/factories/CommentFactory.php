@@ -25,7 +25,8 @@ class CommentFactory extends Factory
             'title' => $this->faker->words(rand(2,8), true),
             'content' => $this->faker->sentence(8),
             'user_id' => $this-> faker->numberBetween(1, 5),
-            'article_id' => $this-> faker->numberBetween(1, 5)
+            'article_id' => $this-> faker->numberBetween(1, 5),
+            'receipe_id' => $this->faker->numberBetween(1, 5)
 
 
         ];
