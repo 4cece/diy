@@ -1,3 +1,4 @@
+
 @extends('layouts.front')
 
 @section('content')
@@ -15,4 +16,28 @@
                     @endauth
                 </div>
             @endif
+<h1>Les articles</h1>
+
+@foreach ($lastArticles as $article)
+    <img src="{{$article->img}}" alt="{{ $article->title }}">
+    <div>{{ $article->title }}</div>
+@endforeach
+
+<h1>Les recettes</h1>
+@foreach ($lastReceipes as $receipe)
+    <a href="/receipe/{{$receipe->id}}"><div>{{$receipe->name }}</div></a>
+    <ul>    
+    @foreach ($receipe->ingredients as $ingredient)
+        <li>
+        {{ $ingredient->name }}
+        </li>
+    @endforeach
+    </ul>  
+    <div>{{$receipe->content}}</div>       
+
+
+    
+@endforeach
 @endsection
+
+

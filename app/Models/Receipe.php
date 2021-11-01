@@ -27,8 +27,8 @@ class Receipe extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function IngredientReceipe() {
+    public function ingredients() {
 
-        return $this->hasmany(IngredientReceipe::class);
+        return $this->belongsToMany(Ingredient::class, 'ingredient_receipes');
     }
 }

@@ -1,5 +1,14 @@
 @extends('layouts.front')
 
 @section('content')
-    #{ Ici sera notre contenu }
+<h1>LISTE DES ARTICLES</h1>
+<ol>
+    @foreach ($articles as $article)
+    <h3>{{ $article->title}}</h3>
+    <img src="{{ $article->img}}" alt="">
+    <div>{{ $article->content}}</div>
+    <a href="/article/{{ $article->id }}">Lire la suite</a>
+    
+     @endforeach
+</ol>
 @endsection

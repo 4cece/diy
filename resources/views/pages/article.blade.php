@@ -2,11 +2,6 @@
 
 @section('content')
  
-<h1>LISTE DES ARTICLES</h1>
-<ol>
-    @foreach ($articles as $article)
-    <li>{{ $article->title}}</li>
-  
-     @endforeach
-</ol>
+    <h3>{{ $articles}}</h3>
+
 @endsection

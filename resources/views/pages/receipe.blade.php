@@ -1,5 +1,15 @@
 @extends('layouts.front')
 
 @section('content')
-    #{ Ici sera notre contenu }
+
+<p>
+</p>
+<ul>
+    
+        @foreach ($receipe->ingredients as $ingredient)
+        <li> {{ $ingredient->name }}</li>
+        @endforeach
+    
+</ul>
+
 @endsection

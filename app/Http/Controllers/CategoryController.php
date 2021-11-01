@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categorys = Category::all();
-        dd($categorys);
+        // $categorys = Category::all();
+        // dd($categorys);
         // return view("pages.ficheIngredient", compact("categorys") );
     }
 

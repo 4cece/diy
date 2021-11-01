@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Article;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
-class ArticleController extends Controller
+class FicheIngreController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        return view('pages.article', [
-            "articles" => Article::all(),
-        ]);
-    }
+    public function index()
+    {
+        $ingredient = Ingredient::all();
+        dd($ingredient);
+        return view("pages.ficheIngredient", compact("ingredient") );
+    }    
 
     /**
      * Show the form for creating a new resource.

@@ -28,14 +28,14 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/blog',[BlogController::class,'blog']);
-Route::get('/article', [ArticleController::class,'index']);
+Route::get('/article/{article}', [ArticleController::class,'index']);
 
 Route::get('/ingredients', [IngredientController::class, 'index']);
 
-Route::get('/ficheIngredient', [CategoryController::class, 'index']);
+Route::get('/ficheIngredient/{ingredient}', [FicheIngreController::class, 'index']);
 Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
-Route::get('/receipe', [ReceipesController::class, 'receipe']);
+Route::get('/receipe/{receipe}', [ReceipesController::class, 'show']);
 Route::get('/receipeForm', [ReceipesController::class, 'receipeForm']);
 
 Route::get('/about', [PagesController::class, "about"]);

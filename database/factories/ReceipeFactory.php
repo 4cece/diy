@@ -26,8 +26,7 @@ class ReceipeFactory extends Factory
             'content' => $this->faker->sentence(8),
             "total_quantity" => $this->faker->randomFloat(0, 30, 1000),
             'user_id'=>$this->faker->numberBetween(1, 5),
-            'level_id'=>$this->faker->numberBetween(1, 3),
-            'ingredient_id'=>$this->faker->numberBetween(1, 10)
+            'level_id'=>$this->faker->numberBetween(1, 3)
 
         ];
     }
