@@ -14,7 +14,7 @@ class Ingredient extends Model
     use HasFactory;
 
     public function ingredientType(){
-        return $this->belongsTo(IngredientType::class);
+        return $this->belongsTo(IngredientType::class, 'ingredient_type_id');
     }
 
     public function Features() {
