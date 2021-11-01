@@ -48,7 +48,9 @@ class IngredientController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('pages.ficheIngredient', [
+            "ingredient" => Ingredient::find($id),
+        ]);
     }
 
     /**

@@ -13,9 +13,9 @@ class ReceipesController extends Controller
 
     // }
     
-    public function show(Receipe $receipe){
+    public function show($id){
         return view('pages.receipe', [
-            'receipe' => Receipe::find($receipe) 
+            'receipe' => Receipe::find($id) 
 
         ]
         

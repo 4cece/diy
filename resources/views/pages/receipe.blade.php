@@ -2,8 +2,7 @@
 
 @section('content')
 
-<p>
-</p>
+<h3>{{$receipe->name}}</h3>
 <ul>
     
         @foreach ($receipe->ingredients as $ingredient)

@@ -32,7 +32,7 @@ Route::get('/article/{article}', [ArticleController::class,'index']);
 
 Route::get('/ingredients', [IngredientController::class, 'index']);
 
-Route::get('/ficheIngredient/{ingredient}', [FicheIngreController::class, 'index']);
+Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show']);
 Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
 Route::get('/receipe/{receipe}', [ReceipesController::class, 'show']);

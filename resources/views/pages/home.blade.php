@@ -19,8 +19,11 @@
 <h1>Les articles</h1>
 
 @foreach ($lastArticles as $article)
-    <img src="{{$article->img}}" alt="{{ $article->title }}">
+    <a href="/article/{{ $article->id }}">
+        <img src="{{$article->img}}" alt="{{ $article->title }}">
     <div>{{ $article->title }}</div>
+    </a>
+    
 @endforeach
 
 <h1>Les recettes</h1>
