@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Feature;
 use App\Models\IngredientFeat;
 use App\Models\IngredientType;
 use App\Models\IngredientReceipe;
@@ -16,9 +17,9 @@ class Ingredient extends Model
         return $this->belongsTo(IngredientType::class);
     }
 
-    public function ingredientFeature() {
+    public function Features() {
 
-        return $this->hasmany(IngredientFeat::class);
+        return $this->belongsToMany(Feature::class, 'ingredient_feats');
     }
     
     public function receipes() {

@@ -7,6 +7,10 @@
 <a href="{{$ingredient->img}}"></a>
 <p>{{$ingredient->content}}</p>
 
+@foreach ($ingredient->features as $feature)
+        <li>{{$feature->name}}</li>
+    
+@endforeach
 
 
 

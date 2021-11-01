@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feature;
 use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class IngredientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public  function index()
     {
         $ingredients = Ingredient::all();
         // dd($ingredients);
@@ -36,7 +37,7 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
         //
     }
 
