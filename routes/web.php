@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\FeatureController;
-use App\Http\Controllers\IngredientController;
-use App\Http\Controllers\PagesController;
-use App\Http\Controllers\ReceipesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ReceipesController;
+use App\Http\Controllers\IngreTypeController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,11 @@ Route::get('/dashboard', function () {
 Route::get('/blog',[BlogController::class,'blog']);
 Route::get('/article/{article}', [ArticleController::class,'index']);
 
+Route::get('ingredient-types', [IngreTypeController::class, 'index'])->name('ingredient-types');
+Route::get('ingredient-types/{type}', [IngreTypeController::class, 'show'])->name('ingredient-type');
 Route::get('/ingredients', [IngredientController::class, 'index']);
 
-Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show']);
+Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show'])->name('ingredient');
 Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
 Route::get('/receipe/{receipe}', [ReceipesController::class, 'show']);

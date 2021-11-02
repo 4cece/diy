@@ -11,8 +11,8 @@ class Level extends Model
     use HasFactory;
 
 
-    public function receipe() {
+    public function receipes() {
 
-        return $this->belongsTo(Receipe::class);
+        return $this->hasMany(Receipe::class);
     }
 }
