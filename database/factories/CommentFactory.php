@@ -26,7 +26,7 @@ class CommentFactory extends Factory
             'content' => $this->faker->sentence(8),
             'user_id' => $this-> faker->numberBetween(1, 5),
             'article_id' => $this-> faker->numberBetween(1, 5),
-            // 'receipe_id'=>$this->faker->numberBetween(1, 5)
+            'receipe_id'=>$this->faker->numberBetween(1, 5)
         ];
     }
 }

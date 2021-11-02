@@ -43,13 +43,8 @@
     @forelse ($user->receipes as $receipe)
         <h4>{{$receipe->name}}</h4>
         <p>{{$receipe->content}}</p>
-        <ul>
-            {{-- @foreach ($user->receipes->ingredients as $ingredient)
-            <li>
-            {{ $ingredient->name }}
-            </li>
-        @endforeach --}}
-        </ul>
+        <a href="/receipe/{{$receipe->id}}">Lire la suite</a>
+        
     @empty
         <p>Il n'y pas de commentaire</p> 
     @endforelse

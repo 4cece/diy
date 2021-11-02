@@ -15,10 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        // dd(Auth::user()->articles, Auth::user()->comments, Auth::user()->receipes);
-        dd(Auth::user()->ingredients);
+        // dd(Auth::user()->articles, Auth::user()->comments, Auth::user()->receipes, Auth::user()->ingredients);
+        
         return view('dashboard', [
-        'user'=> Auth::user()
+        'user'=> Auth::user(),
 
         ]);
     }

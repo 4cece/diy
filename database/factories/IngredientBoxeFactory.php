@@ -14,10 +14,10 @@ class IngredientBoxeFactory extends Factory
     public function definition()
     {
         return [
-            // 'quantity'=>$this->faker->numberBetween(1, 500),
-            // 'user_id'=>$this->faker->numberBetween(1, 10),
-            // 'ingredient_id'=>$this->faker->numberBetween(1, 10),
-            // 'expiration_date''=>$this->faker->date($format = 'Y-m-d', $max = 'now')
+            'quantity'=>$this->faker->numberBetween(1, 500),
+            'user_id'=>$this->faker->numberBetween(1, 10),
+            'ingredient_id'=>$this->faker->numberBetween(1, 10),
+            'expiration_date'=>$this->faker->date($format = 'Y-m-d', $max = 'now')
 
         ];
     }
