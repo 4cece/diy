@@ -27,7 +27,8 @@ class Ingredient extends Model
         return $this->belongsToMany(Receipe::class, 'ingredient_receipes');
     }
 
-    public function level(){
-        return $this->belongsTo(Level::class, 'level_id');
+    public function users() {
+
+        return $this->belongsToMany(User::class, 'ingredient_boxes');
     }
 }

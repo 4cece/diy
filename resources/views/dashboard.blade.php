@@ -14,4 +14,6 @@
             </div>
         </div>
     </div>
+
+    <p>echo </p> 
 </x-app-layout>

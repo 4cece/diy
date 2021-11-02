@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingredient;
-use Illuminate\Http\Request;
 use App\Models\IngredientType;
 
 class IngreTypeController extends Controller
@@ -14,10 +12,10 @@ class IngreTypeController extends Controller
         ]);
 
 }
-    public function show($id)
+    public function show(IngredientType $ingredientType)
     {
         return view('pages.ingredient-type', [
-            "type" => IngredientType::find($id),
+            "type" => $ingredientType,
         ]);
     }
 }

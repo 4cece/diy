@@ -6,7 +6,7 @@
 
 <ul>
     @foreach ($type->ingredients as $ingredient)
-        <a href=""><li>{{$ingredient->name}}</li></a>
+        <a href="{{ route('ingredient', $ingredient) }}"><li>{{$ingredient->name}}</li></a>
     @endforeach
 </ul>
 @endsection

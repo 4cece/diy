@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ReceipesController;
 use App\Http\Controllers\IngreTypeController;
 use App\Http\Controllers\IngredientController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,9 @@ use App\Http\Controllers\IngredientController;
 
 
 Route::get('/dashboard', function () {
+
     return view('dashboard');
+     ;
 })->middleware(['auth'])->name('dashboard');
 
 
@@ -32,7 +35,7 @@ Route::get('/blog',[BlogController::class,'blog']);
 Route::get('/article/{article}', [ArticleController::class,'index']);
 
 Route::get('ingredient-types', [IngreTypeController::class, 'index'])->name('ingredient-types');
-Route::get('ingredient-types/{type}', [IngreTypeController::class, 'show'])->name('ingredient-type');
+Route::get('ingredient-types/{ingredientType}', [IngreTypeController::class, 'show'])->name('ingredient-type');
 Route::get('/ingredients', [IngredientController::class, 'index']);
 
 Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show'])->name('ingredient');

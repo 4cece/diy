@@ -12,9 +12,9 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id){
+    public function index(Article $article){
         return view('pages.article', [
-            "articles" => Article::find($id),
+            "article" => $article,
         ]);
     }
 

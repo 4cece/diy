@@ -16,19 +16,24 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
 
-    public function article() {
+    public function articles() {
 
         return $this->hasMany(Article::class);
     }
 
-    public function comment() {
+    public function comments() {
 
         return $this->hasMany(Comment::class);
     }
 
-    public function receipe() {
+    public function receipes() {
 
         return $this->hasMany(Receipe::class);
+    }
+
+    public function ingredients() {
+
+        return $this->belongsToMany(Ingredient::class, 'ingredient_boxes');
     }
     /**
      * The attributes that are mass assignable.

@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feature;
-use App\Models\Ingredient;
 use Illuminate\Http\Request;
 
-class IngredientController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public  function index()
+    public function index()
     {
-        $ingredients = Ingredient::all();
-        // dd($ingredients);
-        return view("pages.ingredients", compact("ingredients") );
+        $test = 'Salut';
     }
 
     /**
@@ -37,7 +33,7 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {
         //
     }
 
@@ -47,11 +43,9 @@ class IngredientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Ingredient $ingredient)
+    public function show($id)
     {
-        return view('pages.ficheIngredient', [
-            "ingredient" => $ingredient
-        ]);
+        //
     }
 
     /**
@@ -87,6 +81,4 @@ class IngredientController extends Controller
     {
         //
     }
-
-
 }

@@ -12,14 +12,12 @@ class ReceipesController extends Controller
     //         return view('pages.receipe');
 
     // }
-    
-    public function show($id){
-        return view('pages.receipe', [
-            'receipe' => Receipe::find($id) 
 
-        ]
-        
-    );
-     }
-            
+    public function show(Receipe $receipe)
+    {
+        // dd($receipe->steps);
+        return view('pages.receipe', [
+            'receipe' => $receipe
+        ]);
+    }
 }
