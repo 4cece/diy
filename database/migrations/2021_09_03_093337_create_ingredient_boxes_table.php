@@ -17,6 +17,8 @@ class CreateIngredientBoxesTable extends Migration
             $table->float('quantity', 4, 2);
             $table->date('expiration_date');
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('ingredient_id')->constrained();
+
             // $table->unsignedBigInteger('ingredient_id');
             // $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->timestamps();

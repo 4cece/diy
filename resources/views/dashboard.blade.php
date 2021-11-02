@@ -15,5 +15,43 @@
         </div>
     </div>
 
-    <p>echo </p> 
+    <h3>Liste des articles</h3>
+    
+    @forelse ($user->articles as $article)
+    
+        <p>{{ $article->title}}</p>
+        <img src="{{$article->img}}" alt="{{ $article->title}}">
+        <p>{{ $article->content}}</p>
+       
+    @empty
+        <p>Il n'y pas d'articles</p> 
+    @endforelse
+
+    <h3>Liste des commentaires</h3>
+
+    @forelse ($user->comments as $comment)
+        <h4>{{$comment->title}}</h4>
+        <p>{{$comment->content}}</p>
+
+    @empty
+        <p>Il n'y pas de commentaire</p> 
+    @endforelse
+
+
+    <h3>Liste des recettes</h3>
+
+    @forelse ($user->receipes as $receipe)
+        <h4>{{$receipe->name}}</h4>
+        <p>{{$receipe->content}}</p>
+        <ul>
+            {{-- @foreach ($user->receipes->ingredients as $ingredient)
+            <li>
+            {{ $ingredient->name }}
+            </li>
+        @endforeach --}}
+        </ul>
+    @empty
+        <p>Il n'y pas de commentaire</p> 
+    @endforelse
+    
 </x-app-layout>

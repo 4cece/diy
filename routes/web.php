@@ -24,11 +24,7 @@ use App\Http\Controllers\UserController;
 
 
 
-Route::get('/dashboard', function () {
-
-    return view('dashboard');
-     ;
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 
 Route::get('/blog',[BlogController::class,'blog']);
