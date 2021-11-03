@@ -7,7 +7,7 @@
     <h3>{{ $article->title}}</h3>
     <img src="{{ $article->img}}" alt="">
     <div>{{ $article->content}}</div>
-    <a href="/article/{{ $article->id }}">Lire la suite</a>
+    <a href="{{ route('article', $article) }}">Lire la suite</a>
     
      @endforeach
 </ol>

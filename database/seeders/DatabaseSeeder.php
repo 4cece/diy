@@ -25,7 +25,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(5)->create();
         \App\Models\Article::factory(10)->create();
-        \App\Models\Comment::factory(10)->create();
         \App\Models\Feature::factory(10)->create();
         \App\Models\Category::factory(10)->create();
         \App\Models\Level::factory(3)->create();
@@ -35,6 +34,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Ingredient::factory(10)->create();
         \App\Models\IngredientFeat::factory(10)->create();
         \App\Models\IngredientReceipe::factory(10)->create();
+        \App\Models\Comment::factory(10)->create();
 
     }
 }

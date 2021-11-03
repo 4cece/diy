@@ -18,12 +18,18 @@
     
 @endforeach
 
+@auth
+     <button>Mofifier</button>
+    <button>Suprimer</button>   
+@endauth
 <p>Les commentaires</p>
-    {{-- @forelse ($receipe->comments as $comment)
+    @forelse ($receipe->comments as $comment)
     <p>{{$comment->title}}</p>
+    <p>{{$comment->content}}</p>
+
     @empty
         <p>Il n'y a pas de commentaire sur cette article</p>
-    @endforelse --}}
+    @endforelse
    
 
 @endsection

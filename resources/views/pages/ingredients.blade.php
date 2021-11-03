@@ -7,7 +7,7 @@
 
 <ol>
     @foreach ($ingredients as $ingredient)
-    <li> <a href="/ficheIngredient/{{$ingredient->id}}">{{ $ingredient->name}}</a></li>
+    <li> <a href="{{ route('ingredient', $ingredient) }}">{{ $ingredient->name}}</a></li>
   
      @endforeach
 </ol>

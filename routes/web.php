@@ -25,10 +25,16 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::get('/user_articles', [UserController::class, 'index'])->middleware(['auth'])->name('user_articles');
+Route::get('/user_receipes', [UserController::class, 'index'])->middleware(['auth'])->name('user_receipes');
+
+// Route::get('/dashboard', function (){
+//     return view( 'dashboard');
+// })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/blog',[BlogController::class,'blog']);
-Route::get('/article/{article}', [ArticleController::class,'index']);
+Route::get('/blog',[BlogController::class,'blog'])->name('blog');
+Route::get('/article/{article}', [ArticleController::class,'index'])->name('article');
 
 Route::get('ingredient-types', [IngreTypeController::class, 'index'])->name('ingredient-types');
 Route::get('ingredient-types/{ingredientType}', [IngreTypeController::class, 'show'])->name('ingredient-type');
@@ -37,11 +43,11 @@ Route::get('/ingredients', [IngredientController::class, 'index']);
 Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show'])->name('ingredient');
 Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
-Route::get('/receipe/{receipe}', [ReceipesController::class, 'show']);
-Route::get('/receipeForm', [ReceipesController::class, 'receipeForm']);
+Route::get('/receipe/{receipe}', [ReceipesController::class, 'show'])->name('receipe');
+Route::get('/receipeForm', [ReceipesController::class, 'receipeForm'])->name('formulaire');
 
-Route::get('/about', [PagesController::class, "about"]);
-Route::get('/', [ PagesController::class, "home" ]);
+Route::get('/about', [PagesController::class, "about"])->name('about');
+Route::get('/', [ PagesController::class, "home" ])->name('home');
 
 
 require __DIR__.'/auth.php';

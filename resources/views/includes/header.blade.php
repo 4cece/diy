@@ -1,10 +1,9 @@
 <nav>
   <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li> 
+    <li><a href="{{ route('home') }}">Home</a></li>
+    <li><a href="{{ route('about') }}">About</a></li> 
     <li><a href="/receipe">Recette</a></li> 
-    <li><a href="/ingredients">Ingrédients</a></li> 
-    <li><a href="/blog">Blog</a></li> 
-    <li><a href="/admin">Admin</a></li> 
+    <li><a href="{{ route('ingredient-types') }}">Ingrédients</a></li> 
+    <li><a href="{{ route('blog') }}">Blog</a></li> 
   </ul>
 </nav>

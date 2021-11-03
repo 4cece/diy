@@ -15,7 +15,7 @@ class ReceipesController extends Controller
 
     public function show(Receipe $receipe)
     {
-        // dd($receipe->steps);
+        // dd($receipe->comments);
         return view('pages.receipe', [
             'receipe' => $receipe
         ]);

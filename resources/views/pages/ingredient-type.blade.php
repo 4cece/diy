@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Les {{$type->name}}</h1>
+<h1>liste des {{$type->name}}</h1>
 
 <ul>
     @foreach ($type->ingredients as $ingredient)
