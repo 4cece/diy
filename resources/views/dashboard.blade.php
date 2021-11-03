@@ -46,7 +46,7 @@
         <a href="{{ route('receipe', $receipe) }}">Lire la suite</a>
         
     @empty
-        <p>Il n'y pas de commentaire</p> 
+        <p>Il n'y pas de recettes</p> 
     @endforelse
     
 </x-app-layout>

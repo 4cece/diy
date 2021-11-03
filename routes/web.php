@@ -24,14 +24,18 @@ use App\Http\Controllers\UserController;
 
 
 
-Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth'])->name('dashboard');
-Route::get('/user_articles', [UserController::class, 'index'])->middleware(['auth'])->name('user_articles');
-Route::get('/user_receipes', [UserController::class, 'index'])->middleware(['auth'])->name('user_receipes');
+// Route::resource('/user_articles', [UserController::class, 'index'])->middleware(['auth'])->name('', 'index');
+// Route::get('/user_receipes', [UserController::class, 'index'])->middleware(['auth'])->name('user_receipes');
 
-// Route::get('/dashboard', function (){
-//     return view( 'dashboard');
-// })->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
+    Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+    Route::resource('user_articles', \App\Http\Controllers\UserController::class);
+});
 
 Route::get('/blog',[BlogController::class,'blog'])->name('blog');
 Route::get('/article/{article}', [ArticleController::class,'index'])->name('article');
@@ -44,7 +48,9 @@ Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show'
 Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
 Route::get('/receipe/{receipe}', [ReceipesController::class, 'show'])->name('receipe');
-Route::get('/receipeForm', [ReceipesController::class, 'receipeForm'])->name('formulaire');
+Route::get('/receipeForm', [ReceipesController::class, 'form'])->name('formulaire');
+Route::post('/receipeForm', [ReceipesController::class, 'formsend'])->name('formulaire');
+
 
 Route::get('/about', [PagesController::class, "about"])->name('about');
 Route::get('/', [ PagesController::class, "home" ])->name('home');
