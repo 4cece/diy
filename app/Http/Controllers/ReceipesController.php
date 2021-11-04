@@ -30,7 +30,8 @@ class ReceipesController extends Controller
     public function form(){
     return view('pages.receipeForm', [
         'categories' => Category::all(),
-        'levels' =>Level::all()
+        'levels' =>Level::all(),
+        'ingredients'=>Ingredient::all(),
         
     ]);
 

@@ -3800,7 +3800,22 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
+__webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js"); // Formulaire de création de recette
+// les variables
+// Le bouton
+
+
+var btn = document.querySelector('#btnIngre'); // la div
+
+var divinput = document.querySelector('#divinput');
+divinput.append(input); // le champ
+
+var input = document.querySelector('#input');
+btn.addEventListener("click", function () {
+  alert('test'); // let input1 = document.createElement('input');
+  // input1.type= 'text';
+  // input1.type= 'text';
+});
 
 /***/ }),
 
