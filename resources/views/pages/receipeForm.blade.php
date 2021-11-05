@@ -22,11 +22,11 @@
         @endforeach
 
     </select><br>
-    
+
     {{-- LA QUANTITE --}}
     <label for="total_quantity">quantité totale</label>
     <input type="text" name="total_quantity" value="{{ old('total_quantity') ?? null }}"><br>
-    
+
 
     {{-- LES INGREDIENTS --}}
     <label for="ingredient_id">Ingrédient</label>
@@ -41,17 +41,18 @@
     <div id="content"></div>
     <button id="btnIngre" type="">ajouter un ingrédient</button><br>
 
-    
+
     {{-- LES ETAPES DE PREPARATION --}}
     <label for="text">Préparation</label>
-    <input type="text" name="text[]" value="{{ old('text') ?? null }}" >
+    <!--- ATTENTION ici tu afficher un old(value) d'un array, étrange d'ailleurs --->
+    <input type="text" name="text[]" value="" >
     <div id="divstep"></div>
 
     <button id="btnstep">Ajouter une étape</button><br>
 
     {{-- LES INFO COMPLEMENTAIRES --}}
 
-    <textarea name="content" id="" cols="30" rows="10" value="{{ old('content') ?? null }}">Informations complémentaires</textarea><br>
+    <textarea name="contenu" id="" cols="30" rows="10">{{ old('content') ?? null }}</textarea><br>
 
     {{-- LE NIVEAU DE DIFFICULTE --}}
     <label for="level_id">Niveau de diffuculté</label>
@@ -72,7 +73,7 @@
 // les variables
 
     // Le bouton pour ajouter un ingrédient
-    let btn = document.querySelector('#btnIngre'); 
+    let btn = document.querySelector('#btnIngre');
 
     // Le bouton pour ajouter un étape de préparation
     let btnstep = document.querySelector('#btnstep');
@@ -84,7 +85,7 @@
     let divstep = document.querySelector('#divstep');
 
 
-   
+
 
     btn.addEventListener("click", function(event){
         // pour éviter d'envoyer le formulaire
@@ -105,13 +106,13 @@
         content.appendChild(select);
 
         // creation des options
-        
+
         for(var i= 0; i < options.length; i++){
             let option = document.createElement('option');
             option.value = options[i][0];
             option.text= options[i][1];
 
-            select.appendChild(option); 
+            select.appendChild(option);
         }
 
         // création de l'input quantity
@@ -120,7 +121,7 @@
         inputQuant.id = 'quantity';
         inputQuant.placeholder = 'quantité en ml'
 
-        content.appendChild(inputQuant); 
+        content.appendChild(inputQuant);
 
 })
 
@@ -128,7 +129,7 @@
         // pour éviter d'envoyer le formulaire
         event.preventDefault();
 
-    
+
         // Créer une étape de préparation
         let input = document.createElement('input');
         input.name = 'text[]';

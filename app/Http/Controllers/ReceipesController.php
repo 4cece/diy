@@ -27,33 +27,40 @@ class ReceipesController extends Controller
 
     public function formsend(Request $request)
     {
-        // dd($request->all());
-        // Pour créer un nouveau champ dans la requete
-        $request->request->set('user_id', 1);
+        //dd($request);
+
 
         // Pour valider les règles fixé de la table recette
-        $data = $request->validate([
+        $request->validate([
             'name' => 'required',
-            'content' => 'nullable',
             'total_quantity' => 'required|numeric|integer',
-            'user_id' => 'required|numeric|integer',
             'level_id' => 'required|numeric|integer',
             'category_id' => 'required|numeric|integer',
         ]);
 
         // Pour créer la recette
-        $receipe = Receipe::create($data);
+        $receipe = new Receipe();
+        $receipe->user_id = 1; // A changer pâr l'user connecté quand il y aura l'authentif'
+        $receipe->name = $request->name;
+        $receipe->content = $request->contenu;
+        $receipe->total_quantity = (int) $request->total_quantity;
+        $receipe->level_id = $request->level_id;
+        $receipe->category_id = $request->category_id;
 
-        $step = $request->text->validate([
-            'text[]' => 'required',
-        ]);
+        $receipe->save();
 
-        $etape = Step::create($step);
-        $etape->receipe_id()->sync($receipe->id);
+        /*$request->validate([
+            'text[]' => 'required', // Pas sûr de la syntaxe
+        ]);*/
 
+        /*$etape = new Step();
+        $etape->text = $request->text;
+        $etape->save();*/
+
+        return back()->with("Recette créée");
         // $request->request->set('receipe_id', $receipe->id);
 
-    
+
 
     }
 
