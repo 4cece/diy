@@ -12,9 +12,9 @@ use Illuminate\Http\Request;
 
 class ReceipesController extends Controller
 {
-    public function index(){
-            return view('pages.receipe');
-
+    public function index()
+    {
+        return view('pages.receipe');
     }
 
     public function show(Receipe $receipe)
@@ -25,40 +25,56 @@ class ReceipesController extends Controller
         ]);
     }
 
-    public function formsend(Request $request){
+    public function formsend(Request $request)
+    {
+        dd($request->ingredient_id);
+        // Pour créer un nouveau champ dans la requete
+        $request->request->set('user_id', 1);
 
-        dd($request);
-        $receipe = new Receipe();
+        // Pour valider les règles fixé de la table recette
+        $data = $request->validate([
+            'name' => 'required',
+            'content' => 'nullable',
+            'total_quantity' => 'required|numeric|integer',
+            'user_id' => 'required|numeric|integer',
+            'level_id' => 'required|numeric|integer',
+            'category_id' => 'required|numeric|integer',
+        ]);
 
-        $receipe->name = $request->name;
-        $receipe->content = $request->infoCompl;
-        $receipe->total_quantity = $request->quantityTotal;
-        $receipe->user_id  = '1';
-        $receipe->level_id = $request->level;
-        $receipe->category_id = $request->category;
+        // Pour créer la recette
+        $receipe = Receipe::create($data);
+
+        // l'id la recette créer
+        $receipe->id;
+
+       
+       
 
         $ingredientReceipe = new IngredientReceipe();
 
-        $ingredientReceipe->receipe_id = $request->$receipe->id;
+        $ingredientReceipe->receipe_id = $request->$receipe->id;;
         $ingredientReceipe->ingredient_id = $request->ingredient;
         $ingredientReceipe->quantity = $request->quantityIngre;
 
         $step = new Step();
 
         $step->id = $request->name;
+        $step->order = $request->ordrer;
         $step->content = $request->name;
         $step->receipe_id = $request->$receipe->id;
 
 
-}
+        $ingredientReceipe->save();
+        $step->save();
+    }
 
-    public function form(){
-    return view('pages.receipeForm', [
-        'categories' => Category::all(),
-        'levels' =>Level::all(),
-        'ingredients'=>Ingredient::all(),
-        
-    ]);
+    public function form()
+    {
+        return view('pages.receipeForm', [
+            'categories' => Category::all(),
+            'levels' => Level::all(),
+            'ingredients' => Ingredient::all(),
 
-}
+        ]);
+    }
 }

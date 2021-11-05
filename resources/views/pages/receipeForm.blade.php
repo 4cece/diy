@@ -8,11 +8,14 @@
 
     {{-- LE TITRE --}}
     <label for="name">titre</label>
-    <input type="text" name="name"><br>
+    <input type="text" name="name" value="{{ old('name') ?? null }}"><br>
+    @if ($errors->has('name'))
+        <div>{{ $errors->first('name') }}</div>
+    @endif
 
     {{-- LE CATEGORY --}}
-    <label for="category">Category</label>
-    <select name="category" id="category">
+    <label for="category_id">Category</label>
+    <select name="category_id" id="category_id">
         @foreach ($categories as $cat)
         <option value="{{$cat->id}}">{{$cat->name}}</option>
 
@@ -21,37 +24,38 @@
     </select><br>
     
     {{-- LA QUANTITE --}}
-    <label for="quantityTotal">quantité totale</label>
-    <input type="text" name="quantityTotal"><br>
+    <label for="total_quantity">quantité totale</label>
+    <input type="text" name="total_quantity" value="{{ old('total_quantity') ?? null }}"><br>
+    
 
     {{-- LES INGREDIENTS --}}
-    <label for="ingredient">Ingrédient</label>
-    <select name="ingredient" id="ingredient" >
+    <label for="ingredient_id">Ingrédient</label>
+    <select name="ingredient_id[]" id="ingredient" >
         @foreach ($ingredients as $ingredient)
         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
         @endforeach
     </select>
-    <label for="quantityIngre">Quantité</label>
-    <input type="number" name="quantityIngre">
+    <label for="quantity">Quantité</label>
+    <input type="number[]" name="quantity" value="{{ old('number') ?? null }}">
 
     <div id="content"></div>
     <button id="btnIngre" type="">ajouter un ingrédient</button><br>
 
     
     {{-- LES ETAPES DE PREPARATION --}}
-    <label for="step">Préparation</label>
-    <input type="text" name="step" >
+    <label for="content">Préparation</label>
+    <input type="text" name="step[]" value="{{ old('content') ?? null }}" >
     <div id="divstep"></div>
 
     <button id="btnstep">Ajouter une étape</button><br>
 
     {{-- LES INFO COMPLEMENTAIRES --}}
 
-    <textarea name="infoCompl" id="" cols="30" rows="10">Informations complémentaires</textarea><br>
+    <textarea name="content" id="" cols="30" rows="10" value="{{ old('content') ?? null }}">Informations complémentaires</textarea><br>
 
     {{-- LE NIVEAU DE DIFFICULTE --}}
-    <label for="level">Niveau de diffuculté</label>
-    <select name="level" id="level">
+    <label for="level_id">Niveau de diffuculté</label>
+    <select name="level_id" id="level_id">
         @foreach ($levels as $level)
         <option value="{{$level->id}}">{{$level->name}}</option>
 
@@ -95,7 +99,7 @@
 
         //  création du Select
         let select = document.createElement('select');
-        select.name= 'ingredient';
+        select.name= 'ingredient_id[]';
         select.id= 'ingredient';
 
         content.appendChild(select);
@@ -112,8 +116,8 @@
 
         // création de l'input quantity
         let inputQuant = document.createElement('input');
-        inputQuant.name = 'quantityIngre';
-        inputQuant.id = 'quantityIngre';
+        inputQuant.name = 'quantity[]';
+        inputQuant.id = 'quantity';
         inputQuant.placeholder = 'quantité en ml'
 
         content.appendChild(inputQuant); 
@@ -124,13 +128,17 @@
         // pour éviter d'envoyer le formulaire
         event.preventDefault();
 
+    
+        // Créer une étape de préparation
         let input = document.createElement('input');
-        input.name = 'step';
+        input.name = 'step[]';
         input.type = 'text';
         input.style = 'width:80%';
         input.placeholder = 'étape de préparation'
 
         divstep.appendChild(input);
+
+
     })
 
 
