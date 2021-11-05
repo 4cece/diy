@@ -32,9 +32,9 @@ Route::group(['middleware' => 'auth'], function() {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/dashboard', [UserController::class, 'index'])->middleware(['auth'])->name('dashboard');
+    Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 
-    Route::resource('user_articles', \App\Http\Controllers\UserController::class);
+    Route::get('/user_article', [UserController::class,'article'])->name('user_article');
 });
 
 Route::get('/blog',[BlogController::class,'blog'])->name('blog');
