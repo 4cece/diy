@@ -21,8 +21,8 @@
     </select><br>
     
     {{-- LA QUANTITE --}}
-    <label for="quantity">quantité totale</label>
-    <input type="text" name="quantity"><br>
+    <label for="quantityTotal">quantité totale</label>
+    <input type="text" name="quantityTotal"><br>
 
     {{-- LES INGREDIENTS --}}
     <label for="ingredient">Ingrédient</label>
@@ -31,9 +31,10 @@
         <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
         @endforeach
     </select>
+    <label for="quantityIngre">Quantité</label>
+    <input type="number" name="quantityIngre">
 
     <div id="content"></div>
-    
     <button id="btnIngre" type="">ajouter un ingrédient</button><br>
 
     
@@ -108,6 +109,15 @@
 
             select.appendChild(option); 
         }
+
+        // création de l'input quantity
+        let inputQuant = document.createElement('input');
+        inputQuant.name = 'quantityIngre';
+        inputQuant.id = 'quantityIngre';
+        inputQuant.placeholder = 'quantité en ml'
+
+        content.appendChild(inputQuant); 
+
 })
 
     btnstep.addEventListener('click', function(event){

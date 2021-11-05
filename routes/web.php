@@ -49,7 +49,7 @@ Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient'])
 
 Route::get('/receipe/{receipe}', [ReceipesController::class, 'show'])->name('receipe');
 Route::get('/receipeForm', [ReceipesController::class, 'form'])->name('formulaire');
-Route::post('/receipeForm', [ReceipesController::class, 'formsend'])->name('formulaire');
+Route::post('/receipeForm', [ReceipesController::class, 'formsend'])->name('formulairesend');
 
 
 Route::get('/about', [PagesController::class, "about"])->name('about');
