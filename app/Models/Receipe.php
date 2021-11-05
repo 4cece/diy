@@ -40,4 +40,7 @@ class Receipe extends Model
 
         return $this->hasMany(Step::class);
     }
+
+    protected $fillable = ['name'];
+
 }

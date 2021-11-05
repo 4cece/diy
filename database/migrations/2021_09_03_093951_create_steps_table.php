@@ -15,9 +15,7 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255)->nullable();
-            $table->text('content');
-            $table->integer('order')->nullable();
+            $table->text('text');
             $table->foreignId('receipe_id')->constrained();
             $table->timestamps();
 

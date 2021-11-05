@@ -27,7 +27,7 @@ class ReceipesController extends Controller
 
     public function formsend(Request $request)
     {
-        dd($request->ingredient_id);
+        // dd($request->all());
         // Pour créer un nouveau champ dans la requete
         $request->request->set('user_id', 1);
 
@@ -44,28 +44,17 @@ class ReceipesController extends Controller
         // Pour créer la recette
         $receipe = Receipe::create($data);
 
-        // l'id la recette créer
-        $receipe->id;
+        $step = $request->text->validate([
+            'text[]' => 'required',
+        ]);
 
-       
-       
+        $etape = Step::create($step);
+        $etape->receipe_id()->sync($receipe->id);
 
-        $ingredientReceipe = new IngredientReceipe();
+        // $request->request->set('receipe_id', $receipe->id);
 
-        $ingredientReceipe->receipe_id = $request->$receipe->id;;
-        $ingredientReceipe->ingredient_id = $request->ingredient;
-        $ingredientReceipe->quantity = $request->quantityIngre;
+    
 
-        $step = new Step();
-
-        $step->id = $request->name;
-        $step->order = $request->ordrer;
-        $step->content = $request->name;
-        $step->receipe_id = $request->$receipe->id;
-
-
-        $ingredientReceipe->save();
-        $step->save();
     }
 
     public function form()

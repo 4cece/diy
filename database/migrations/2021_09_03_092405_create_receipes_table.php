@@ -16,7 +16,7 @@ class CreateReceipesTable extends Migration
         Schema::create('receipes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 255);
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->float('total_quantity', 8, 2, true);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('level_id')->constrained();

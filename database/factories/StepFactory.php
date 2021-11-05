@@ -22,9 +22,7 @@ class StepFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->words(2, true),
-            'content' =>$this->faker->sentences(3, true),
-            'order' => $this->faker->numberBetween(1, 15),
+            'text' =>$this->faker->sentences(3, true),
             'receipe_id'=>$this->faker->numberBetween(1, 10)
         ];
     }

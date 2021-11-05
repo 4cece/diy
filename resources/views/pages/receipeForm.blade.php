@@ -43,8 +43,8 @@
 
     
     {{-- LES ETAPES DE PREPARATION --}}
-    <label for="content">Préparation</label>
-    <input type="text" name="step[]" value="{{ old('content') ?? null }}" >
+    <label for="text">Préparation</label>
+    <input type="text" name="text[]" value="{{ old('text') ?? null }}" >
     <div id="divstep"></div>
 
     <button id="btnstep">Ajouter une étape</button><br>
@@ -131,7 +131,7 @@
     
         // Créer une étape de préparation
         let input = document.createElement('input');
-        input.name = 'step[]';
+        input.name = 'text[]';
         input.type = 'text';
         input.style = 'width:80%';
         input.placeholder = 'étape de préparation'
