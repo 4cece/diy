@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Route::get('/user_article', [UserController::class,'article'])->middleware('auth')->name('user_article');
+Route::post('/user_article', [UserController::class,'postarticle'])->middleware('auth')->name('postarticle');
+
 Route::get('/user_receipe', [UserController::class,'receipe'])->middleware('auth')->name('user_receipe');
 Route::get('/user_comment', [UserController::class,'comment'])->middleware('auth')->name('user_comment');
 
