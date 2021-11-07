@@ -27,7 +27,7 @@ class UserController extends Controller
     {
         // dd(Auth::user()->articles, Auth::user()->comments, Auth::user()->receipes, Auth::user()->ingredients);
         
-        return view('user_article', [
+        return view('user.user_article', [
         'user'=> Auth::user(),
 
         ]);
@@ -37,8 +37,19 @@ class UserController extends Controller
     {
         // dd(Auth::user()->articles, Auth::user()->comments, Auth::user()->receipes, Auth::user()->ingredients);
         
-        return view('user_receipe', [
+        return view('user.user_receipe', [
         'user'=> Auth::user(),
+
+        ]);
+    }
+
+    public function comment()
+    {
+        // dd(Auth::user()->articles, Auth::user()->comments, Auth::user()->receipes, Auth::user()->ingredients);
+        
+        return view('user.user_comment', [
+        'user'=> Auth::user(),
+        'article'
 
         ]);
     }
