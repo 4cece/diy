@@ -43,9 +43,9 @@
 
 
     {{-- LES ETAPES DE PREPARATION --}}
-    <label for="text">Préparation</label>
+    <label for="textstep">Préparation</label>
     <!--- ATTENTION ici tu afficher un old(value) d'un array, étrange d'ailleurs --->
-    <input type="text" name="text[]" value="" >
+    <input type="text" name="textstep[]" value="" >
     <div id="divstep"></div>
 
     <button id="btnstep">Ajouter une étape</button><br>
@@ -132,7 +132,7 @@
 
         // Créer une étape de préparation
         let input = document.createElement('input');
-        input.name = 'text[]';
+        input.name = 'textstep[]';
         input.type = 'text';
         input.style = 'width:80%';
         input.placeholder = 'étape de préparation'

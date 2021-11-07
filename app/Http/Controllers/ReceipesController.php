@@ -30,32 +30,40 @@ class ReceipesController extends Controller
         //dd($request);
 
 
-        // Pour valider les règles fixé de la table recette
-        $request->validate([
-            'name' => 'required',
-            'total_quantity' => 'required|numeric|integer',
-            'level_id' => 'required|numeric|integer',
-            'category_id' => 'required|numeric|integer',
-        ]);
+        // // Pour valider les règles fixé de la table recette
+        // $request->validate([
+        //     'name' => 'required',
+        //     'total_quantity' => 'required|numeric|integer',
+        //     'level_id' => 'required|numeric|integer',
+        //     'category_id' => 'required|numeric|integer',
+        // ]);
 
-        // Pour créer la recette
-        $receipe = new Receipe();
-        $receipe->user_id = 1; // A changer pâr l'user connecté quand il y aura l'authentif'
-        $receipe->name = $request->name;
-        $receipe->content = $request->contenu;
-        $receipe->total_quantity = (int) $request->total_quantity;
-        $receipe->level_id = $request->level_id;
-        $receipe->category_id = $request->category_id;
+        // // Pour créer la recette
+        // $receipe = new Receipe();
+        // $receipe->user_id = 1; // A changer pâr l'user connecté quand il y aura l'authentif'
+        // $receipe->name = $request->name;
+        // $receipe->content = $request->contenu;
+        // $receipe->total_quantity = (int) $request->total_quantity;
+        // $receipe->level_id = $request->level_id;
+        // $receipe->category_id = $request->category_id;
 
-        $receipe->save();
+        // $receipe->save();
 
-        /*$request->validate([
-            'text[]' => 'required', // Pas sûr de la syntaxe
-        ]);*/
+        // // dd($request->text);
+        // $request->validate([
+        //     'text[]' => 'required', // Pas sûr de la syntaxe
+            
+        // ]);
 
-        /*$etape = new Step();
-        $etape->text = $request->text;
-        $etape->save();*/
+        // dd($request->text);
+        // Pour créer les étapes
+        foreach ($request->text as $text):
+        $etape = new Step();
+        $etape->textstep = $text->textstep;
+        $etape->receipe_id = 11;
+        $etape->save();
+
+        endforeach;
 
         return back()->with("Recette créée");
         // $request->request->set('receipe_id', $receipe->id);

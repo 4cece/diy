@@ -34,8 +34,12 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
 
-    Route::get('/user_article', [UserController::class,'article'])->name('user_article');
 });
+
+Route::get('/user_article', [UserController::class,'article'])->middleware('auth')->name('user_article');
+Route::get('/user_receipe', [UserController::class,'receipe'])->middleware('auth')->name('user_receipe');
+
+
 
 Route::get('/blog',[BlogController::class,'blog'])->name('blog');
 Route::get('/article/{article}', [ArticleController::class,'index'])->name('article');

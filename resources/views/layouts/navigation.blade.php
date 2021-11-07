@@ -18,9 +18,9 @@
                     <x-nav-link :href="route('user_article')" :nonactive="request()->routeIs('user_article')">
                         {{ __('Articles') }}
                     </x-nav-link>
-                    {{-- <x-nav-link :href="route('user_receipes')" :nonactive="request()->routeIs('user_receipes')">
+                    <x-nav-link :href="route('user_receipe')" :nonactive="request()->routeIs('user_receipe')">
                         {{ __('Recettes') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
                     
                 </div>
             </div>
