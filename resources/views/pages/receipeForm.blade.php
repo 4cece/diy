@@ -37,7 +37,7 @@
                 @endforeach
             </select>
             <label for="quantity">Quantité</label>
-            <input type="number[]" name="quantity" value="{{ old('number') ?? null }}">
+            <input type="number[]" name="quantity[]" value="{{ old('number') ?? null }}">
         
             <div id="content"></div>
             <button id="btnIngre" type="">ajouter un ingrédient</button><br>

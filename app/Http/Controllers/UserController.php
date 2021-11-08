@@ -57,15 +57,14 @@ class UserController extends Controller
     {
         
         $name = Storage::disk('public')->put('articleImg', $request->img);
-        // dd($name);
-        // $url = Storage::url($name);
-    //    dd($imaName);
+        
         // Pour valider les règles fixées de la table article
-        // $request->validate([
-        //     'title' => 'required',
-        //     'content' => 'required',
-        //     'user_id' => 'required|numeric|integer',
-        // ]);
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'img' => 'required|image|max:2048|mimes:jpeg,png,jpg,gif,svg',
+
+        ]);
 
         // Pour créer l'article
         $article = new Article();
@@ -88,10 +87,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -122,10 +118,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        $article = Article::find($id);
-        return view('article', compact("article"));
+        // dd($article);
+        // return view('user.user_article_update');
+        return view('user.user_article_update', [
+            'article' => $article
+        ]);
     }
 
     /**
@@ -135,12 +134,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, Article $article){
+
+    if(Empty($request->img)) {
         $name = Storage::disk('public')->put('articleImg', $request->img);
+    }else
+    {
+        $name = $request->img;
+    }
 
         // On récupère la ligne à modifier
-        $article = Article::find($id);
+        // $article = Article::find($id);
 
         // On change pour les nouvelles valeurs
         $article->title = $request->title;
@@ -159,6 +163,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // On récupère la ligne à détruire
+    $article = Article::find($id);
+    
+    // On lance la destruction
+    $article->delete();
+    
+    return redirect()->route('user_article');
     }
 }

@@ -15,7 +15,7 @@
         <p>{{ $article->title}}</p>
         <img src=" {{Storage::url($article->img)}}" alt="{{ $article->title}}">
         <p>{{ $article->content}}</p>
-       
+       <a href="{{ route('article', $article) }}">Lire la suite</a>
         
     @empty
         <p>Il n'y pas d'articles</p> 

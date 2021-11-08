@@ -3,7 +3,7 @@
 @section('content')
  
     <h3>{{ $article->title}}</h3>
-    <img src="{{$article->img}}" alt="{{ $article->title}}">
+    <img src="{{Storage::url($article->img)}}" alt="{{ $article->title}}">
     <p>{{$article->content}}</p>
 
     <p>Les commentaires</p>
@@ -13,5 +13,10 @@
         <p>Il n'y a pas de commentaire sur cette article</p>
     @endforelse
     
+    @auth
+        <button>Mofifier</button>
+        <button type="submit">  Suprimer</button>
+        
+@endauth
     
 @endsection
