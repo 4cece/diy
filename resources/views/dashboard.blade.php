@@ -13,7 +13,6 @@
         <p>{{ $article->title}}</p>
         <img src="{{$article->img}}" alt="{{ $article->title}}">
         <p>{{ $article->content}}</p>
-       
     @empty
         <p>Il n'y pas d'articles</p> 
     @endforelse

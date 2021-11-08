@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Receipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserArticleController extends Controller
 {
@@ -16,7 +19,8 @@ class UserArticleController extends Controller
     {
         return view('user.user_article', [
             'user'=> Auth::user(),
-    
+            'lastArticles' => Article::orderByDesc('created_at')->limit(3)->get(),
+            'lastReceipes' => Receipe::orderByDesc('created_at')->limit(2)->get(),
             ]);
     }
 
@@ -25,9 +29,29 @@ class UserArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $name = Storage::disk('public')->put('articleImg', $request->img);
+        
+        // Pour valider les règles fixées de la table article
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'img' => 'required|image|max:2048|mimes:jpeg,png,jpg,gif,svg',
+
+        ]);
+
+        // Pour créer l'article
+        $article = new Article();
+        $article->title = $request->title;
+        $article->content = $request->content;
+        $article->user_id = auth()->user()->id ;
+        $article->img = $name;
+
+        $article->save();   
+
+        return back()->with('Article créer');
+
     }
 
     /**

@@ -26,16 +26,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function article()
-    {
-        // dd(Auth::user()->articles, Auth::user()->comments, Auth::user()->receipes, Auth::user()->ingredients);
-        
-        return view('user.user_article', [
-        'user'=> Auth::user(),
-
-        ]);
-    }
-
     public function receipe()
     {        
 
