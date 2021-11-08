@@ -9,14 +9,21 @@
 
     <h3>Liste des articles</h3>
     
+    <a href="{{ route ('user_article.create')}}">Créer un nouvel article</a>
     
     @forelse ($user->articles as $article)
     
         <p>{{ $article->title}}</p>
         <img src=" {{Storage::url($article->img)}}" alt="{{ $article->title}}">
         <p>{{ $article->content}}</p>
-       <a href="{{ route('article', $article) }}">Lire la suite</a>
-        
+
+        <form action="{{ route ('user_article.destroy', $article) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <a href="{{ route ('user_article.show', $article->id)}}">Montrer</a>
+        <a href="{{ route ('user_article.edit', $article->id)}}">Modifier</a>
+        <button type="submit">Supprimer</button>
+        </form>
     @empty
         <p>Il n'y pas d'articles</p> 
     @endforelse

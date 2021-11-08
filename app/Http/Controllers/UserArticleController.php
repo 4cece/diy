@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Receipe;
+use App\Models\User;
+use Faker\Guesser\Name;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -17,10 +18,9 @@ class UserArticleController extends Controller
      */
     public function index()
     {
-        return view('user.user_article', [
+        return view('user.article.index', [
             'user'=> Auth::user(),
-            'lastArticles' => Article::orderByDesc('created_at')->limit(3)->get(),
-            'lastReceipes' => Receipe::orderByDesc('created_at')->limit(2)->get(),
+            'articles'=> Article::all(),
             ]);
     }
 
@@ -31,13 +31,26 @@ class UserArticleController extends Controller
      */
     public function create(Request $request)
     {
-        $name = Storage::disk('public')->put('articleImg', $request->img);
+        return view('user.article.create');
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        // dd($request->img);
+        $name = Storage::disk('public')->put('imgArticle', $request->img);
         
         // Pour valider les règles fixées de la table article
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'img' => 'required|image|max:2048|mimes:jpeg,png,jpg,gif,svg',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
 
         ]);
 
@@ -51,18 +64,6 @@ class UserArticleController extends Controller
         $article->save();   
 
         return back()->with('Article créer');
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
     /**
@@ -71,9 +72,9 @@ class UserArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        //
+        return view ('user.article.show', compact('article'));
     }
 
     /**
@@ -82,9 +83,9 @@ class UserArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        return view ('user.article.edit', compact('article'));
     }
 
     /**
@@ -94,10 +95,30 @@ class UserArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
-    }
+        if(Empty($request->img)) {
+            $name = $request->img;
+
+        }else
+        {
+            $name = Storage::disk('public')->put('imgArticle', $request->img);
+
+        }
+    
+    
+            // On change pour les nouvelles valeurs
+            $article->title = $request->title;
+            $article->content = $request->content;
+            $article->user_id = auth()->user()->id ;
+            $article->img = $name;
+    
+            $article->save();
+
+            return view ('user.article.index', [
+                'user'=> Auth::user()
+            ]);
+        }
 
     /**
      * Remove the specified resource from storage.
@@ -105,8 +126,10 @@ class UserArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+
+        return redirect()-> route('user_article.index')->with('success', 'Article supprimé avec succès');
     }
 }

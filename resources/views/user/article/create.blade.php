@@ -1,8 +1,12 @@
-@extends('layouts.front')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Articles') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-
-<form action="{{ route("postarticle") }}" method="post" enctype="multipart/form-data">        @csrf
+<form action="{{ route("user_article.store") }}" method="post" enctype="multipart/form-data">        
+    @csrf
     <label for="title">Titre de l'article</label>
     <input type="text" name="title"><br>
     <label for="content">Contenu de l'article</label>
@@ -12,4 +16,4 @@
     <button type="submit">Envoyer l'article</button>
 </form>
 
-@endsection
+</x-app-layout>
