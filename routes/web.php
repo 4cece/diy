@@ -11,6 +11,7 @@ use App\Http\Controllers\ReceipesController;
 use App\Http\Controllers\IngreTypeController;
 use App\Http\Controllers\IngredientController;
 use App\Http\Controllers\UserArticleController;
+use App\Http\Controllers\UserReceipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'auth'], function() {
 // Route User Article
 // Route::resource('/user_article', UserController::class)->parameter('user_article', 'article')->middleware('auth');
 Route::resource('/user_article', UserArticleController::class)->parameter('user_article', 'article')->middleware('auth');
+Route::resource('/user_receipe', UserReceipeController::class)->parameter('user_receipe', 'receipe')->middleware('auth');
 
 // Route::get('/user_article', [UserController::class,'article'])->middleware('auth')->name('user_article');
 // Route::post('/user_article', [UserController::class,'postarticle'])->middleware('auth')->name('postarticle');

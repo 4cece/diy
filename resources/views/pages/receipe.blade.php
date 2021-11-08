@@ -15,13 +15,14 @@
 <h4>Préparation</h4>
 @foreach ($receipe->steps as $step)
 <p>{{$step->content}}</p>
+
     
+    
+
 @endforeach
 
-@auth
-     <button>Mofifier</button>
-    <button>Suprimer</button>   
-@endauth
+
+
 <p>Les commentaires</p>
     @forelse ($receipe->comments as $comment)
     <p>{{$comment->title}}</p>

@@ -9,6 +9,8 @@
 
     <h3>Liste des recettes</h3>
 
+    <a href="{{route('user_receipe.create')}}">Ajouter une recette</a>
+
     @forelse ($user->receipes as $receipe)
     
         <h3>{{ $receipe->name}}</h3>
@@ -22,6 +24,13 @@
             </li>
         @endforeach
         
+        <form action="{{ route ('user_receipe.destroy', $receipe) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <a href="{{ route ('user_receipe.show', $receipe->id)}}">Montrer</a>
+            <a href="{{ route ('user_receipe.edit', $receipe->id)}}">Modifier</a>
+            <button type="submit">Supprimer</button>
+        </form>
         @empty
         <p>Il n'y pas de recettes</p> 
     @endforelse

@@ -7,7 +7,6 @@
 
     <a href="{{ route ('user_article.index')}}">Retour</a>
 
-
     <h3>{{ $article->title}}</h3>
     <img src="{{Storage::url($article->img)}}" alt="{{ $article->title}}">
     <p>{{$article->content}}</p>

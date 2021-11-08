@@ -33,7 +33,7 @@
     @forelse ($user->receipes as $receipe)
         <h4>{{$receipe->name}}</h4>
         <p>{{$receipe->content}}</p>
-        <a href="{{ route('receipe', $receipe) }}">Lire la suite</a>
+        <a href="{{ route('user_receipe.show', $receipe) }}">Lire la suite</a>
         
     @empty
         <p>Il n'y pas de recettes</p> 
