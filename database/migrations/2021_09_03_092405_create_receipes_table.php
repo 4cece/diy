@@ -22,6 +22,8 @@ class CreateReceipesTable extends Migration
             $table->foreignId('level_id')->constrained();
             $table->foreignId('category_id')->constrained();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

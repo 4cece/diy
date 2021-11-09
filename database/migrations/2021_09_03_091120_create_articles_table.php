@@ -20,6 +20,8 @@ class CreateArticlesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('img', 100)->nullable();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

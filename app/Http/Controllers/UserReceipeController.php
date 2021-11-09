@@ -227,13 +227,7 @@ class UserReceipeController extends Controller
      */
     public function destroy(Receipe $receipe)
     {
-        // $ingredient_receipe = IngredientReceipe::where('receipe_id', $receipe->id)->get();
-        // $step = Step::where('receipe_id', $receipe->id)->get();
-
-        // $ingredient_receipe->delete();
-        // $step->delete();
-        $receipe->ingredientReceipe->delete();
-        $receipe->steps->delete();
+        
         $receipe->delete();
 
         return redirect()-> route('user_receipe')->with('success', 'Article supprimé avec succès');
