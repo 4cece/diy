@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Receipe extends Model
 {
     use HasFactory;
+  
 
     public function user() {
 

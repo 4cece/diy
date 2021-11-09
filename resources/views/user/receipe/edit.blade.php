@@ -4,7 +4,7 @@
             {{ __('Recettes') }}
         </h2>
     </x-slot>
-<form action="{{'user_receipe.uptade', $receipe->id}}" method="POST">
+<form action="{{route('user_receipe.update', $receipe->id)}}" method="POST">
     @csrf
     @method('PUT')
         {{-- LE TITRE --}}
@@ -31,26 +31,24 @@
     
     
         {{-- LES INGREDIENTS --}}
-         {{-- <label for="ingredient_id">Ingrédient</label>
-         @foreach ($receipe->ingredients as $ingredient)
-         <select name="ingredient_id[]" id="ingredient" >
-            @foreach ($ingredients as $ingredient)
-            <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
-            @endforeach
-        </select>
-         @endforeach --}}
-         
+      
         @foreach ($receipe->ingredients as $ingredient)
-            <select name="ingredient_id[]" id="ingredient" >
+
+        @foreach($ingredientsReceipes as $ingredientReceipes)
+            @if($ingredientReceipes->ingredient_id === $ingredient->id)
+                @php $ingredient->quantity = $ingredientReceipes->quantity; @endphp
+            @endif
+        @endforeach
+
+        <select name="ingredient_id[]" id="ingredient" >
                 <option selected value="{{$ingredient->id}}">{{$ingredient->name}}</option>
-                @foreach ($ingredients as $ingredient)
-                <option value="{{$ingredient->id}}">{{$ingredient->name}}</option>
+                @foreach ($ingredients as $ingre)
+                <option value="{{$ingre->id}}">{{$ingre->name}}</option>
                 @endforeach
             </select>
             <label for="quantity">Quantité</label>
-        <input type="number" name="quantity[]" value="{{$receipe->quantity}}">
-        @endforeach
-
+        <input type="number[]" name="quantity[]" value="{{$ingredient->quantity}}">
+    @endforeach
        
        
         <button id="btnIngre" type="">ajouter un ingrédient</button><br> 
@@ -76,7 +74,7 @@
             @endforeach
         </select><br>
     
-        <button type="submit">Créer votre recette</button>
+        <button type="submit">Modifier votre recette</button>
      
     </form>
 

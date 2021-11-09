@@ -20,7 +20,7 @@ class UserReceipeController extends Controller
      */
     public function index()
     {
-        return view('user.receipe.index', [
+        return view('user.user_receipe', [
             'user'=> Auth::user(),
             'receipes'=> Receipe::all(),
         ]);
@@ -138,7 +138,7 @@ class UserReceipeController extends Controller
             'levels' => Level::all(),
             'ingredients' => Ingredient::all(),
             'steps'=> Step::all(),
-            'ingredientReceipes'=> IngredientReceipe::where('receipe_id', $receipe->id)->get(),
+            'ingredientsReceipes'=> IngredientReceipe::where('receipe_id', $receipe->id)->get(),
         ]);
        
 
@@ -151,9 +151,72 @@ class UserReceipeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Receipe $receipe)
     {
-        //
+        
+        // Pour valider les règles fixé de la table recette
+        $request->validate([
+            'name' => 'required',
+            'total_quantity' => 'required|numeric|integer',
+            'level_id' => 'required|numeric|integer',
+            'category_id' => 'required|numeric|integer',
+        ]);
+
+        // Pour créer la recette
+        $receipe = new Receipe();
+        $receipe->user_id = auth()->user()->id; // A changer pâr l'user connecté quand il y aura l'authentif'
+        $receipe->name = $request->name;
+        $receipe->content = $request->contenu;
+        $receipe->total_quantity = (int) $request->total_quantity;
+        $receipe->level_id = $request->level_id;
+        $receipe->category_id = $request->category_id;
+
+        $receipe->save();
+
+        // Les étapes préparations
+
+        // validation
+        $request->validate([
+            'textstep' => 'required', 
+        ]);
+
+       
+        // Pour créer les étapes
+
+        foreach ($request->textstep as $text):
+        $etape = new Step();
+        $etape->textstep = $text;
+        $etape->receipe_id = $receipe->id;
+        $etape->save();
+        endforeach;
+
+        // Les ingrédients
+
+                // validation
+
+        $request->validate([
+            'ingredient_id' => 'required',
+            'quantity' => 'required',
+        ]);
+
+        // Pour créer lesingredients
+        $ingredient_quantity =  array_combine( $request->ingredient_id, $request->quantity);
+
+        foreach ( $ingredient_quantity as $ingredient_id => $quantity):
+
+            $ingredient_receipe = new IngredientReceipe();
+
+            $ingredient_receipe->receipe_id = $receipe->id;
+            $ingredient_receipe->ingredient_id = $ingredient_id;
+            $ingredient_receipe->quantity = $quantity;
+            
+            
+            $ingredient_receipe->save();
+        endforeach;
+
+            return view ('user.user_receipe', [
+                'user'=> Auth::user()
+            ]);
     }
 
     /**
@@ -164,7 +227,14 @@ class UserReceipeController extends Controller
      */
     public function destroy(Receipe $receipe)
     {
-        $receipe -> delete();
+        // $ingredient_receipe = IngredientReceipe::where('receipe_id', $receipe->id)->get();
+        // $step = Step::where('receipe_id', $receipe->id)->get();
+
+        // $ingredient_receipe->delete();
+        // $step->delete();
+        $receipe->ingredientReceipe->delete();
+        $receipe->steps->delete();
+        $receipe->delete();
 
         return redirect()-> route('user_receipe')->with('success', 'Article supprimé avec succès');
 

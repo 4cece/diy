@@ -24,11 +24,6 @@ use App\Http\Controllers\UserReceipeController;
 |
 */
 
-
-
-// Route::resource('/user_articles', [UserController::class, 'index'])->middleware(['auth'])->name('', 'index');
-// Route::get('/user_receipes', [UserController::class, 'index'])->middleware(['auth'])->name('user_receipes');
-
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', function () {
         return view('dashboard');
