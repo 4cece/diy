@@ -105,8 +105,6 @@ class UserArticleController extends Controller
             $name = Storage::disk('public')->put('imgArticle', $request->img);
 
         }
-    
-    
             // On change pour les nouvelles valeurs
             $article->title = $request->title;
             $article->content = $request->content;
