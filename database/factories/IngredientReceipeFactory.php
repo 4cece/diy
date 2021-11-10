@@ -22,8 +22,8 @@ class IngredientReceipeFactory extends Factory
     public function definition()
     {
         return [
-            'receipe_id'=>$this->faker->numberBetween(1, 5),
-            'ingredient_id'=>$this->faker->numberBetween(1, 5),
+            'receipe_id'=>$this->faker->numberBetween(1, 50),
+            'ingredient_id'=>$this->faker->numberBetween(1, 100),
             'quantity'=>$this->faker->numberBetween(1, 500)
         ];
     }

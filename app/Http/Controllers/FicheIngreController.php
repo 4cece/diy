@@ -14,9 +14,7 @@ class FicheIngreController extends Controller
      */
     public function index()
     {
-        $ingredient = Ingredient::all();
-        dd($ingredient);
-        return view("pages.ficheIngredient", compact("ingredient") );
+        
     }    
 
     /**

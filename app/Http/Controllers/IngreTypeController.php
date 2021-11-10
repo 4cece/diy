@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingredient;
 use App\Models\IngredientType;
 
 class IngreTypeController extends Controller
@@ -9,6 +10,7 @@ class IngreTypeController extends Controller
     public function index(){
         return view('pages.ingredient-types', [
             'ingretypes' => IngredientType::all(),
+            'ingredients' =>Ingredient::all(),
         ]);
 
 }

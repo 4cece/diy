@@ -2,12 +2,12 @@
 
 @section('content')
 
-<p>type d'ingredient: 
+<p>type d'ingredient: {{$ingredient->ingredientType->name}}
 </p>
 
 
 <h3>{{$ingredient->name}}</h3>
-<a href="{{$ingredient->img}}"></a>
+<img src="{{$ingredient->img}}" alt="{{$ingredient->name}}">
 <p>{{$ingredient->content}}</p>
 
 <h3>Les propriétés de l'ingrédient</h3>
