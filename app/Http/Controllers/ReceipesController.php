@@ -14,7 +14,10 @@ class ReceipesController extends Controller
 {
     public function index()
     {
-        return view('pages.receipe');
+        return view('pages.receipes', [
+            'categorys' => Category::all(),
+            'receipes' =>Receipe::all(),
+        ]);
     }
 
     public function show(Receipe $receipe)

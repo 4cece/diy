@@ -60,8 +60,12 @@ Route::get('/ingredients', [IngredientController::class, 'index']);
 Route::get('/ficheIngredient/{ingredient}', [IngredientController::class, 'show'])->name('ingredient');
 Route::get('/ficheIngredient', [IngredientController::class, 'ficheIngredient']);
 
-// Route Formulaire de recette
+//  Route des recettes
+Route::get('/receipes', [ReceipesController::class, 'index'])->name('receipes');
 Route::get('/receipe/{receipe}', [ReceipesController::class, 'show'])->name('receipe');
+
+// Route Formulaire de recette
+
 Route::get('/receipeForm', [ReceipesController::class, 'form'])->name('formulaire');
 Route::post('/receipeForm', [ReceipesController::class, 'formsend'])->name('formulairesend');
 

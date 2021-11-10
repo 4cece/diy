@@ -1,19 +1,19 @@
 <div class="flex flex-wrap place-items-center">
   <section class="relative mx-auto">
       <!-- navbar -->
-    <nav class="flex justify-between bg-gray-900 text-white w-screen">
+    <nav class="flex justify-between bg-purple text-white w-screen">
       <div class="px-5 xl:px-12 py-6 flex w-full items-center">
-        <a class="text-3xl font-bold font-heading" href="#">
+        <a class="text-3xl font-bold font-heading text-white" href="#">
           <!-- <img class="h-9" src="logo.png" alt="logo"> -->
           Logo Here.
         </a>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><a class="hover:text-gray-200" href="{{ route('home') }}">Home</a></li>
-          <li><a class="hover:text-gray-200" href="{{ route('about') }}">about</a></li>
-          <li><a class="hover:text-gray-200" href="{{ route('formulaire') }}">Recettes</a></li>
-          <li><a class="hover:text-gray-200" href="{{ route('ingredient-types') }}">Ingrédients</a></li>
-          <li><a class="hover:text-gray-200" href="{{ route('blog') }}">Blog</a></li>
+          <li><a class="hover:text-green-light text-white" href="{{ route('home') }}">Home</a></li>
+          <li><a class="hover:text-green-light text-white" href="{{ route('about') }}">about</a></li>
+          <li><a class="hover:text-green-light text-white" href="{{ route('receipes') }}">Recettes</a></li>
+          <li><a class="hover:text-green-light text-white" href="{{ route('ingredient-types') }}">Ingrédients</a></li>
+          <li><a class="hover:text-green-light text-white" href="{{ route('blog') }}">Blog</a></li>
         </ul>
         <!-- Header Icons -->
         <div class="hidden xl:flex items-center space-x-5 items-center">
