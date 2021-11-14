@@ -13,7 +13,7 @@ class PagesController extends Controller
     public function home(){
     return view('pages.home', [
         "lastArticles" => Article::orderByDesc('created_at')->limit(3)->get(),
-        "lastReceipes" => Receipe::orderByDesc('created_at')->limit(2)->get(),
+        "lastReceipes" => Receipe::orderByDesc('created_at')->limit(3)->get(),
     ]);
     }
 

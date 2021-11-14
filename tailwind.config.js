@@ -19,7 +19,8 @@ module.exports = {
                     light: '#e5f9e0',
                 },
 
-                purple: '#53599a'
+                purple: '#53599a',
+                white: '#FFFFF',
             },
         
     },
