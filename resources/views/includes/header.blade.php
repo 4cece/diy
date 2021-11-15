@@ -17,15 +17,53 @@
         <!-- Header Icons -->
         <div class="hidden xl:flex items-center space-x-5 items-center">
           @if (Route::has('login'))
-          <div class="hidden  px-6 py-4 sm:block">
+          <div class="hidden sm:block">
               @auth
                   <a href="{{ url('/dashboard') }}" class="text-sm text-white underline">Dashboard</a>
               @else
-                  <a href="{{ route('login') }}" class="text-sm text-white underline">Log in</a>
+              <div class="flex justify-center">
+                <div x-data="{ dropdownOpen: true }" class="relative">
+                  <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block rounded-md bg-white p-2 focus:outline-none">
+                <svg 
+                  version="1.1" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  xmlns:xlink="http://www.w3.org/1999/xlink" 
+                  width="60" 
+                  height="60"
+                  fill="white">
+                
+                  <title>Abstract user icon</title>
+                
+                  <defs>
+                    <clipPath id="circular-border">
+                      <circle cx="30" cy="30" r="25" />
+                    </clipPath>
+                  </defs>
+                  
+                  <circle cx="30" cy="30" r="28" fill="black" />
+                  <circle cx="30" cy="23" r="10" />
+                  <circle cx="30" cy="55" r="19" clip-path="url(#circular-border)" />
+                </svg>
+                     
+                  </button>
+                
+                  <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 z-10"></div>
+                
+                  <div x-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                    <a href="{{ route('login') }}" class="text-sm text-purple underline">Log in</a>
+
+                    @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="ml-4 text-sm text-purple underline">Register</a>
+                    @endif
+                   
+                  </div>
+                </div>
+                </div>
+                  {{-- <a href="{{ route('login') }}" class="text-sm text-white underline">Log in</a>
 
                   @if (Route::has('register'))
                       <a href="{{ route('register') }}" class="ml-4 text-sm text-white underline">Register</a>
-                  @endif
+                  @endif --}}
               @endauth
           </div>
       @endif
