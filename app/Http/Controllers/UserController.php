@@ -22,7 +22,8 @@ class UserController extends Controller
         
         return view('dashboard', [
         'user'=> Auth::user(),
-
+        'articles'=> Auth::user()->articles->take(3),
+        'receipes'=> Auth::user()->receipes->take(3),
         ]);
     }
 

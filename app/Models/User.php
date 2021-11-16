@@ -33,7 +33,7 @@ class User extends Authenticatable
 
     public function ingredients() {
 
-        return $this->belongsToMany(Ingredient::class, 'ingredient_boxes');
+        return $this->belongsToMany(Ingredient::class, 'ingredient_boxes')->withPivot('quantity');
     }
     /**
      * The attributes that are mass assignable.
