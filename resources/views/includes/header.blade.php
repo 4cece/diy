@@ -49,7 +49,7 @@
                 
                   <div x-show="dropdownOpen" @click="dropdownOpen = false" class="fixed inset-0 z-10"></div>
                 
-                  <div x-show="dropdownOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
+                  <div x-show="dropdownOpen" class="absolute mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20">
                     <a href="{{ route('login') }}" class="text-sm text-purple underline">Log in</a>
 
                     @if (Route::has('register'))
