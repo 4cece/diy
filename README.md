@@ -35,3 +35,7 @@ npm run watch
 Terminer dans un autre Terminal (encore !) en lançant votre serveur de dev :
 
 php artisan serve
+
+Pour que les images: 
+
+php artisan storage:link
