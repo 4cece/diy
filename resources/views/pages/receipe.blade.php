@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h3>{{$receipe->name}}</h3>
+<h3 class="font-amatic">{{$receipe->name}}</h3>
 <p>Category: {{$receipe->category->name}} </p>
 <p>Niveau de difficulté : {{$receipe->level->name}} </p>
 <ul>

@@ -7,12 +7,12 @@
           <x-LogoGreen class="block h-10 w-auto fill-current" />
         </a>
         <!-- Nav Links -->
-        <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-          <li><a class="hover:text-green-light text-white" href="{{ route('home') }}">Home</a></li>
-          <li><a class="hover:text-green-light text-white" href="{{ route('about') }}">about</a></li>
-          <li><a class="hover:text-green-light text-white" href="{{ route('receipes') }}">Recettes</a></li>
-          <li><a class="hover:text-green-light text-white" href="{{ route('ingredient-types') }}">Ingrédients</a></li>
-          <li><a class="hover:text-green-light text-white" href="{{ route('blog') }}">Blog</a></li>
+        <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading gap-12">
+          <li class="m-0 p-0"><a class="hover:text-green-light text-white" href="{{ route('home') }}">Home</a></li>
+          <li class="m-0 p-0"><a class="hover:text-green-light text-white" href="{{ route('about') }}">about</a></li>
+          <li class="m-0 p-0"><a class="hover:text-green-light text-white" href="{{ route('receipes') }}">Recettes</a></li>
+          <li class="m-0 p-0"><a class="hover:text-green-light text-white" href="{{ route('ingredient-types') }}">Ingrédients</a></li>
+          <li class="m-0 p-0"><a class="hover:text-green-light text-white" href="{{ route('blog') }}">Blog</a></li>
         </ul>
         <!-- Header Icons -->
         <div class="hidden xl:flex items-center space-x-5 items-center">
