@@ -4,7 +4,7 @@
     <nav class="flex justify-between bg-purple w-screen">
       <div class="px-5 xl:px-12 py-6 flex w-full items-center text-green-light">
         <a class="text-3xl font-bold font-heading text-green-light" href="#">
-          <x-application-logo class="block h-10 w-auto fill-current" />
+          <x-LogoGreen class="block h-10 w-auto fill-current" />
         </a>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
