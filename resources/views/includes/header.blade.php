@@ -2,10 +2,18 @@
   <section class="relative mx-auto">
       <!-- navbar -->
     <nav class="flex justify-between bg-purple w-screen text-green-light">
-      <div class="px-5 xl:px-12 py-6 flex w-full items-center ">
+      
+      <div class="px-5 xl:px-12 py-6 flex justify-between w-full items-center ">
         <a class="text-3xl font-bold font-heading" href="#">
           <x-LogoGreen class="block h-10 w-auto fill-current" />
         </a>
+        <!-- Responsive navbar -->
+
+      <a class="navbar-burger self-center mr-12 xl:hidden" id="burger" href="">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </a>
         <!-- Nav Links -->
         <ul class="hidden md:flex px-4 mx-auto font-semibold font-heading gap-12 menu">
           <li class="m-0 p-0"><a class="hover:text-green-light text-white" href="{{ route('home') }}">Home</a></li>
@@ -23,7 +31,7 @@
               @else
               <div class="flex justify-center">
                 <div x-data="{ dropdownOpen: true }" class="relative">
-                  <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block rounded-md bg-white p-2 focus:outline-none">
+                  <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block rounded-md p-2 focus:outline-none">
                 <svg 
                   version="1.1" 
                   xmlns="http://www.w3.org/2000/svg" 
@@ -66,31 +74,22 @@
     
         </div>
       </div>
-      <!-- Responsive navbar -->
-      <a class="xl:hidden flex mr-6 items-center" href="#">
-        <span class="flex absolute -mt-5 ml-4">
-          <span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-pink-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500">
-          </span>
-        </span>
-      </a> 
-      <a class="navbar-burger self-center mr-12 xl:hidden" id="burger">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hover:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-      </a>
+      
     </nav>
     
   </section>
 
   <script>
-    let burger = document.queryselector('#burger');
+    let burger = document.querySelector('#burger');
+    let menu =  document.querySelector('.menu')
 
     burger.addEventListener("click", function(event){
        // pour éviter d'envoyer le formulaire
        event.preventDefault();
 
-      alert('test');
-    }
+      console.log('test');
+
+      menu.style.display = 'block'
+    })
   </script>
 </div>
