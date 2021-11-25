@@ -20,8 +20,8 @@
                 </svg>
             </div>
     
-            <div class="z-10 order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
-                <div class="p-8 md:pr-18 md:pl-14 md:py-12 mx-5 md:mx-0 h-full bg-white rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
+            <div class="z-10 bg-white order-2 md:order-1 w-full h-full md:w-3/5 flex items-center -mt-6 md:mt-0">
+                <div class="p-8 md:pr-18 md:pl-14 md:py-12 mx-5 md:mx-0 h-full rounded-lg md:rounded-none md:rounded-l-lg shadow-xl md:shadow-none">
                     <h3 class="hidden md:block font-bold text-2xl text-gray-700">{{ $article->title}}</h3>
                     <div class="overflow-hidden h-32 ...">
                         {{ $article->content}}

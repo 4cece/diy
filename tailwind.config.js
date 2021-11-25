@@ -21,6 +21,7 @@ module.exports = {
                 },
 
                 purple: '#53599a',
+                white: '#FFFFFF'
             },
         
     },
