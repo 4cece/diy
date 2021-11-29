@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h1 class="text-green-dark border-b-2 text-4xl font-Shrikhand m-5">Ingredients</h1>
+
 
 <ul class="text-center m-10">
     @foreach ($ingretypes as $type)

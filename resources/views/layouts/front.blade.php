@@ -19,13 +19,13 @@
   
 
   <div class="flex">
-    <div class="flex-1 bg-ping bg-repeat-y bg-cover bg-contain" style="background-image: url({{asset('img/RECETTE.png')}}) ">
+  <div class="flex-1 bg-ping bg-repeat-y bg-cover bg-contain" style="background-image: url({{asset('img/RECETTE.png')}}) ">
 </div>
     <div class="w-10/12 flex-none bg-green-light">
       @yield('content')
 
     </div>
-    <div class="flex-1 bg-ping bg-repeat-y bg-cover bg-contain" style="background-image: url({{asset('img/recette2.png')}}) ">
+    <div class="flex-1 bg-ping bg-repeat-y bg-cover bg-contain " style="background-image: url({{asset('img/recette2.png')}}) ">
     </div>
 </div>
   <script src="{{asset('js/app.js')}}"></script>

@@ -18,6 +18,7 @@ class IngreTypeController extends Controller
     {
         return view('pages.ingredient-type', [
             "type" => $ingredientType,
+            
         ]);
     }
 }

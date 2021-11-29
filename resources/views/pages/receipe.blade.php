@@ -2,34 +2,39 @@
 
 @section('content')
 
-<h3 class="font-amatic">{{$receipe->name}}</h3>
+
+<h3 class="text-4xl font-Shrikhand text-center m-5">{{$receipe->name}}</h3>
 <p>Category: {{$receipe->category->name}} </p>
 <p>Niveau de difficulté : {{$receipe->level->name}} </p>
-<ul>
+
+<div>
+    <h2 class="font-Shrikhand m-3">Les ingredients</h2>
+    <ul>
         @foreach ($receipe->ingredients as $ingredient)
-        <li>Nom: {{ $ingredient->name }}</li>
-        <li>quantité: {{$ingredient->pivot->quantity}}</li>
+        <li class="m-1">{{$ingredient->pivot->quantity}} ml de {{ $ingredient->name }}</li>
         @endforeach
-</ul>
+    </ul>
+</div>
 
-<h4>Préparation</h4>
+
+<h4 class="font-Shrikhand m-3"> Les étape de préparation </h4>
 @foreach ($receipe->steps as $step)
-<p>{{$step->content}}</p>
+<p>{{$step->textstep}}</p>
 
-    
-    
 
 @endforeach
 
+<h4 class="font-Shrikhand m-3">Informations supplémentaires</h4>
+<p>{{$receipe->content}}</p>
 
 
-<p>Les commentaires</p>
+<h4 class="font-Shrikhand m-3">Les commentaires</h4>
     @forelse ($receipe->comments as $comment)
     <p>{{$comment->title}}</p>
     <p>{{$comment->content}}</p>
 
     @empty
-        <p>Il n'y a pas de commentaire sur cette article</p>
+        <p>Il n'y a pas de commentaire sur cette recette</p>
     @endforelse
    
 

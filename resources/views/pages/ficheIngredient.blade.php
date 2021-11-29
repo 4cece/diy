@@ -11,11 +11,22 @@
 <p>{{$ingredient->content}}</p>
 
 <h3>Les propriétés de l'ingrédient</h3>
-@foreach ($ingredient->features as $feature)
-        <li>{{$feature->name}}</li>
-    
-@endforeach
 
+@forelse ($ingredient->features as $feature)
+<li>{{$feature->name}}</li>
+@empty
+ il n'y pas de propriété enregistrer
+ @endforelse
+
+{{-- <ul>
+        @forelse ($receipes as $recette)
+        <li>{{$recette->receipe_id}}</li>
+        @empty
+            Il n'y a pas de recette avec cet ingrédient
+        @endforelse
+        @foreach ()
+
+</ul> --}}
 
 
 

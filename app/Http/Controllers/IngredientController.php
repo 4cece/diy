@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Feature;
 use App\Models\Ingredient;
+use App\Models\IngredientReceipe;
 use Illuminate\Http\Request;
+use Psy\Command\WhereamiCommand;
 
 class IngredientController extends Controller
 {
@@ -48,9 +50,11 @@ class IngredientController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Ingredient $ingredient)
+
     {
         return view('pages.ficheIngredient', [
-            "ingredient" => $ingredient
+            "ingredient" => $ingredient,
+            "receipe"    => IngredientReceipe::where('ingredient_id', $ingredient),
         ]);
     }
 

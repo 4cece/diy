@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory(10)->create();
         \App\Models\Level::factory(3)->create();
         \App\Models\Receipe::factory(50)->create();
-        \App\Models\Step::factory(10)->create();
+        \App\Models\Step::factory(150)->create();
         \App\Models\IngredientType::factory(10)->create();
         \App\Models\Ingredient::factory(100)->create();
         \App\Models\IngredientBox::factory(100)->create();

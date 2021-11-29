@@ -23,7 +23,7 @@ class IngredientFactory extends Factory
     {
         return [
             'name' => $this->faker->words(2, true),
-            'content' => $this->faker->sentences(2, true),
+            'content' => $this->faker->sentences(10, true),
             'img' => $this->faker->imageUrl(600, 480),
             'ingredient_type_id' => $this->faker->numberBetween(1, 10),
         ];

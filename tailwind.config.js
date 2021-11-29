@@ -12,7 +12,7 @@ module.exports = {
     theme: {
             fontFamily: {
                 sans: ['Nunito', 'cursive'],
-                'amatic':['Amatic', 'cursive'],
+                'Amatic':['Amatic', 'cursive'],
                 'Shrikhand': ['Shrikhand', 'cursive'],
             },
             colors: {

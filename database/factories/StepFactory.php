@@ -23,7 +23,7 @@ class StepFactory extends Factory
     {
         return [
             'textstep' =>$this->faker->sentences(3, true),
-            'receipe_id'=>$this->faker->numberBetween(1, 10)
+            'receipe_id'=>$this->faker->numberBetween(1, 50)
         ];
     }
 }
