@@ -63,19 +63,19 @@
   <div class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1 p-5" id="mobile-menu-3">
     <ul class="flex-col md:flex-row flex md:space-x-8 md:mt-0 md:text-sm md:font-medium">
       <li>
-        <a href="{{ route('home') }}" class="text-white">Home</a>
+        <a href="{{ route('home') }}" class="text-green-light">Home</a>
       </li>
       <li>
-        <a href="{{ route('about') }}" class="text-white">About</a>
+        <a href="{{ route('about') }}" class="text-green-light">About</a>
       </li>
       <li>
-        <a href="{{ route('receipes') }}" class="text-white">Recettes</a>
+        <a href="{{ route('receipes') }}" class="text-green-light">Recettes</a>
       </li>
 	  <li>
-        <a href="{{ route('ingredient-types') }}" class="text-white">Ingrédients</a>
+        <a href="{{ route('ingredient-types') }}" class="text-green-light">Ingrédients</a>
       </li>
 	  <li>
-        <a href="{{ route('blog') }}" class="text-white">Blog</a>
+        <a href="{{ route('blog') }}" class="text-green-light">Blog</a>
       </li>
     </ul>
   </div>

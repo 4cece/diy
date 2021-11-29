@@ -356,7 +356,7 @@ ul {
  */
 
 html {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: Nunito, cursive; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -15043,11 +15043,15 @@ select {
 }
 
 .font-sans {
-  font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Nunito, cursive;
 }
 
 .font-amatic {
   font-family: Amatic, cursive;
+}
+
+.font-Shrikhand {
+  font-family: Shrikhand, cursive;
 }
 
 .text-xs {
@@ -32309,11 +32313,15 @@ select {
   }
 
   .sm\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Nunito, cursive;
   }
 
   .sm\:font-amatic {
     font-family: Amatic, cursive;
+  }
+
+  .sm\:font-Shrikhand {
+    font-family: Shrikhand, cursive;
   }
 
   .sm\:text-xs {
@@ -49563,11 +49571,15 @@ select {
   }
 
   .md\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Nunito, cursive;
   }
 
   .md\:font-amatic {
     font-family: Amatic, cursive;
+  }
+
+  .md\:font-Shrikhand {
+    font-family: Shrikhand, cursive;
   }
 
   .md\:text-xs {
@@ -66817,11 +66829,15 @@ select {
   }
 
   .lg\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Nunito, cursive;
   }
 
   .lg\:font-amatic {
     font-family: Amatic, cursive;
+  }
+
+  .lg\:font-Shrikhand {
+    font-family: Shrikhand, cursive;
   }
 
   .lg\:text-xs {
@@ -84071,11 +84087,15 @@ select {
   }
 
   .xl\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Nunito, cursive;
   }
 
   .xl\:font-amatic {
     font-family: Amatic, cursive;
+  }
+
+  .xl\:font-Shrikhand {
+    font-family: Shrikhand, cursive;
   }
 
   .xl\:text-xs {
@@ -101325,11 +101345,15 @@ select {
   }
 
   .\32xl\:font-sans {
-    font-family: Nunito, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Nunito, cursive;
   }
 
   .\32xl\:font-amatic {
     font-family: Amatic, cursive;
+  }
+
+  .\32xl\:font-Shrikhand {
+    font-family: Shrikhand, cursive;
   }
 
   .\32xl\:text-xs {

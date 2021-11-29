@@ -11,8 +11,9 @@ module.exports = {
 
     theme: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-                'amatic':['Amatic', 'cursive']
+                sans: ['Nunito', 'cursive'],
+                'amatic':['Amatic', 'cursive'],
+                'Shrikhand': ['Shrikhand', 'cursive'],
             },
             colors: {
                 green: {
