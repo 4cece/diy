@@ -3,7 +3,6 @@
 @section('content')
 
 <h1 class="text-green-dark border-b-2 text-4xl font-Shrikhand">Les actualités</h1>
-<h1></h1>
 <ol>
     @foreach ($articles as $article)
 
