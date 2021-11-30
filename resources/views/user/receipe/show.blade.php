@@ -7,9 +7,11 @@
 
     <a href="{{ route ('user_receipe')}}">Retour</a>
 
-    <h3>{{$receipe->name}}</h3>
+    <h3 class="text-4xl font-Shrikhand text-center m-5" >{{$receipe->name}}</h3>
     <p>Category: {{$receipe->category->name}} </p>
     <p>Niveau de difficulté : {{$receipe->level->name}} </p>
+
+    <h3 class="font-Shrikhand m-3">Les ingredients</h3>
     <ul>
         @foreach ($receipe->ingredients as $ingredient)
         <li>Nom: {{ $ingredient->name }}</li>
@@ -17,9 +19,9 @@
         @endforeach
     </ul>
 
-    <h4>Préparation</h4>
+    <h4 class="font-Shrikhand m-3">Les préparation</h4>
     @foreach ($receipe->steps as $step)
-    <p>{{$step->content}}</p>
+    <p>{{$step->textstep}}</p>
         
     @endforeach
 
@@ -33,7 +35,7 @@
         <p>{{$comment->content}}</p>
 
     @empty
-        <p>Il n'y a pas de commentaire sur cette article</p>
+        <p>Il n'y a pas de commentaire sur cette recette</p>
     @endforelse
 
 </x-app-layout>

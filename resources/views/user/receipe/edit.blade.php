@@ -4,7 +4,11 @@
             {{ __('Recettes') }}
         </h2>
     </x-slot>
-<form action="{{route('user_receipe.update', $receipe->id)}}" method="POST">
+
+    <h3 class="text-4xl font-Shrikhand text-purple text-center m-5">Modifier la recette</h3>
+
+
+    <form action="{{route('user_receipe.update', $receipe->id)}}" method="POST" class="bg-green-light border border-purple text-center space-y-2 text-purple md:mx-48 p-10">
     @csrf
     @method('PUT')
         {{-- LE TITRE --}}
@@ -27,7 +31,7 @@
     
         {{-- LA QUANTITE --}}
         <label for="total_quantity">quantité totale</label>
-        <input type="text" name="total_quantity" value="{{ $receipe->total_quantity}}"><br>
+        <input type="text" name="total_quantity" value="{{ $receipe->total_quantity}} ml"><br>
     
     
         {{-- LES INGREDIENTS --}}
@@ -47,7 +51,7 @@
                 @endforeach
             </select>
             <label for="quantity">Quantité</label>
-        <input type="number[]" name="quantity[]" value="{{$ingredient->quantity}}">
+        <input type="number[]" name="quantity[]" value="{{$ingredient->quantity}} ml">
     @endforeach
        
        
@@ -74,7 +78,7 @@
             @endforeach
         </select><br>
     
-        <button type="submit">Modifier votre recette</button>
+        <button type="submit" class="bg-green-dark text-green-light p-2 rounded">Modifier votre recette</button>
      
     </form>
 

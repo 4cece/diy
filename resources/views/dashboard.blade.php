@@ -41,7 +41,7 @@
     @forelse ($articles as $article)
     
         <div class="md:flex justify-center mb-5 bg-green-light rounded">
-            <img src="{{$article->img}}" alt="{{ $article->title}}" class="rounded-xl w-auto h-48">
+            <img src="{{Storage::url($article->img)}}" alt="{{ $article->title}}" class="rounded-xl w-auto h-48">
     
             <div class="w-full flex flex-col p-3 h-48 overflow-hidden">	
                     <h3 class="font-black text-purple text-2xl">{{ $article->title}}</h3>

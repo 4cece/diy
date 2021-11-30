@@ -5,8 +5,9 @@
         </h2>
     </x-slot>
 
+    <h3 class="text-4xl font-Shrikhand text-purple text-center m-5">Nouvelle recette</h3>
 
-<form action="{{ route("user_receipe.store") }}" method="POST">
+<form action="{{ route("user_receipe.store") }}" method="POST" class="bg-green-light border border-purple text-center space-y-2 text-purple md:mx-48 p-10">
     @csrf
     
         {{-- LE TITRE --}}
@@ -28,7 +29,7 @@
     
         {{-- LA QUANTITE --}}
         <label for="total_quantity">quantité totale</label>
-        <input type="text" name="total_quantity" value="{{ old('total_quantity') ?? null }}"><br>
+        <input type="text" name="total_quantity" value="{{ old('total_quantity') ?? null }}" class="border border-purple" placeholder="quantité en ml"><br>
     
     
         {{-- LES INGREDIENTS --}}
@@ -41,8 +42,8 @@
         <label for="quantity">Quantité</label>
         <input type="number[]" name="quantity[]" value="{{ old('number') ?? null }}">
     
-        <div id="content"></div>
-        <button id="btnIngre" type="">ajouter un ingrédient</button><br>
+        <div id="content" class="grid-cols-1 md:grid-cols-2"></div>
+        <button id="btnIngre" class="bg-green-dark text-green-light p-2 rounded">ajouter un ingrédient</button><br>
     
     
         {{-- LES ETAPES DE PREPARATION --}}
@@ -51,11 +52,11 @@
         <input type="text" name="textstep[]" value="" >
         <div id="divstep"></div>
     
-        <button id="btnstep">Ajouter une étape</button><br>
+        <button id="btnstep" class="bg-green-dark text-green-light p-2 rounded">Ajouter une étape</button><br>
     
         {{-- LES INFO COMPLEMENTAIRES --}}
     
-        <textarea name="contenu" id="" cols="30" rows="10">{{ old('content') ?? null }}</textarea><br>
+        <textarea name="contenu" placeholder="informations complémentaires" cols="30" rows="10">{{ old('content') ?? null }}</textarea><br>
     
         {{-- LE NIVEAU DE DIFFICULTE --}}
         <label for="level_id">Niveau de diffuculté</label>
@@ -66,7 +67,7 @@
             @endforeach
         </select><br>
     
-        <button type="submit">Créer votre recette</button>
+        <button type="submit" class="bg-green-dark text-green-light p-2 rounded" >Créer votre recette</button>
     
     </form>
 
