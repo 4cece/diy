@@ -2,21 +2,24 @@
 
 @section('content')
 
-<p>type d'ingredient: {{$ingredient->ingredientType->name}}
-</p>
+<div class="text-center mx-auto">
 
 
-<h3>{{$ingredient->name}}</h3>
-<img src="{{$ingredient->img}}" alt="{{$ingredient->name}}">
-<p>{{$ingredient->content}}</p>
+    <h3 class="text-green-dark text-2xl font-Shrikhand m-12">{{$ingredient->name}}</h3>
+    <p>type d'ingredient: {{$ingredient->ingredientType->name}}</p>
 
-<h3>Les propriétés de l'ingrédient</h3>
+    <img class="mx-auto p-5" src="{{$ingredient->img}}" alt="{{$ingredient->name}}">
+    <p>{{$ingredient->content}}</p>
+    
+    <h3 class="mt-5">Les propriétés de l'ingrédient</h3>
+    
+    @forelse ($ingredient->features as $feature)
+    <li>{{$feature->name}}</li>
+    @empty
+     il n'y pas de propriété enregistrer
+     @endforelse
+</div>
 
-@forelse ($ingredient->features as $feature)
-<li>{{$feature->name}}</li>
-@empty
- il n'y pas de propriété enregistrer
- @endforelse
 
 {{-- <ul>
         @forelse ($receipes as $recette)

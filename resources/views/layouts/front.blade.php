@@ -21,7 +21,7 @@
   <div class="flex">
   <div class="flex-1 bg-ping bg-repeat-y bg-cover bg-contain" style="background-image: url({{asset('img/RECETTE.png')}}) ">
 </div>
-    <div class="w-10/12 flex-none bg-green-light">
+    <div class="w-10/12 flex-none bg-green-light text-purple">
       @yield('content')
 
     </div>
