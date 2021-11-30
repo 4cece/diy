@@ -32,7 +32,7 @@
                         <p class="text-center mt-4">{{$receipe->content}}</p>
                     </div>
                     <div>
-                        <a href="{{ route('receipe', $receipe) }}"">Lire la suite   <span class="text-xs ml-1">&#x279c;</span></a>
+                        <a href="{{ route('receipe', $receipe) }}">Lire la suite   <span class="text-xs ml-1">&#x279c;</span></a>
                     </div>
                 </div>    
                 @endforeach
